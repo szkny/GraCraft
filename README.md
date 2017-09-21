@@ -7,3 +7,6 @@ $ cd ~/Downloads/GraCraft-master
 $ make
 $ ./bin/GraCraft
 ```
+
+# GraCraft Images
+![GraCraft image1](https://github.com/szkny/GraCraft/wiki/images/GraCraft01.png)
