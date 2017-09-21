@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>Command</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-6.5.7' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<span class='curline'><a href='../S/5.html#L20'>Command</a>            20 include/Command.h class Command{</span>
+<span class='curline'><a href='../S/5.html#L29'>Command</a>            29 include/Command.h 		Command();</span>
+<span class='curline'><a href='../S/5.html#L48'>Command</a>            48 include/Command.h inline Command::Command(){</span>
+<span class='curline'><a href='../S/5.html#L56'>Command</a>            56 include/Command.h inline void Command::Resize(int WX, int WY){</span>
+<span class='curline'><a href='../S/5.html#L61'>Command</a>            61 include/Command.h inline void Command::Draw(){</span>
+<span class='curline'><a href='../S/5.html#L110'>Command</a>           110 include/Command.h inline void Command::SetFlag(){</span>
+<span class='curline'><a href='../S/5.html#L117'>Command</a>           117 include/Command.h inline bool Command::GetFlag(){</span>
+<span class='curline'><a href='../S/5.html#L122'>Command</a>           122 include/Command.h inline int Command::CommandStore(unsigned char key){</span>
+<span class='curline'><a href='../S/5.html#L181'>Command</a>           181 include/Command.h inline int Command::CommandHistory(int key){</span>
+<span class='curline'><a href='../S/5.html#L210'>Command</a>           210 include/Command.h inline void Command::CommandCursor(int key){</span>
+<span class='curline'><a href='../S/5.html#L229'>Command</a>           229 include/Command.h inline bool Command::RunCommand(const char *s0){</span>
+<span class='curline'><a href='../S/5.html#L237'>Command</a>           237 include/Command.h inline bool Command::RunCommand(const char *s0, const char *s1){</span>
+<span class='curline'><a href='../S/5.html#L246'>Command</a>           246 include/Command.h inline bool Command::RunCommand(const char *s0, const char *s1, const char *s2){</span>
+<span class='curline'><a href='../S/5.html#L256'>Command</a>           256 include/Command.h inline bool Command::RunCommand(const char *s0, double *a1){</span>
+<span class='curline'><a href='../S/5.html#L258'>Command</a>           258 include/Command.h 	char Command[64];</span>
+<span class='curline'><a href='../S/5.html#L260'>Command</a>           260 include/Command.h 	sscanf(CommandString[CmdID],"%s %lf",Command,&amp;arg1);</span>
+<span class='curline'><a href='../S/5.html#L261'>Command</a>           261 include/Command.h 	if(!strcmp(Command,s0)) match = true;</span>
+<span class='curline'><a href='../S/5.html#L264'>Command</a>           264 include/Command.h 		printf("Command:%s\t%f\n",Command,(*a1));</span>
+<span class='curline'><a href='../S/5.html#L270'>Command</a>           270 include/Command.h inline bool Command::RunCommand(const char *s0, double *a1, double *a2){</span>
+<span class='curline'><a href='../S/5.html#L272'>Command</a>           272 include/Command.h 	char Command[64];</span>
+<span class='curline'><a href='../S/5.html#L275'>Command</a>           275 include/Command.h 	sscanf(CommandString[CmdID],"%s %lf %lf",Command,&amp;arg1,&amp;arg2);</span>
+<span class='curline'><a href='../S/5.html#L276'>Command</a>           276 include/Command.h 	if(!strcmp(Command,s0)) match = true;</span>
+<span class='curline'><a href='../S/5.html#L280'>Command</a>           280 include/Command.h 		printf("Command:%s\t%f\t%f\n",Command,(*a1),(*a2));</span>
+<span class='curline'><a href='../S/5.html#L286'>Command</a>           286 include/Command.h inline bool Command::RunCommand(const char *s0, double *a1, double *a2, double *a3){</span>
+<span class='curline'><a href='../S/5.html#L288'>Command</a>           288 include/Command.h 	char Command[64];</span>
+<span class='curline'><a href='../S/5.html#L292'>Command</a>           292 include/Command.h 	sscanf(CommandString[CmdID],"%s %lf %lf %lf",Command,&amp;arg1,&amp;arg2,&amp;arg3);</span>
+<span class='curline'><a href='../S/5.html#L293'>Command</a>           293 include/Command.h 	if(!strcmp(Command,s0)) match = true;</span>
+<span class='curline'><a href='../S/5.html#L298'>Command</a>           298 include/Command.h 		printf("Command:%s\t%f\t%f\t%f\n",Command,(*a1),(*a2),(*a3));</span>
+<span class='curline'><a href='../S/5.html#L304'>Command</a>           304 include/Command.h inline bool Command::RunCommand(const char *s0, double *a1, double *a2, double *a3, double *a4){</span>
+<span class='curline'><a href='../S/5.html#L306'>Command</a>           306 include/Command.h 	char Command[64];</span>
+<span class='curline'><a href='../S/5.html#L311'>Command</a>           311 include/Command.h 	sscanf(CommandString[CmdID],"%s %lf %lf %lf %lf",Command,&amp;arg1,&amp;arg2,&amp;arg3,&amp;arg4);</span>
+<span class='curline'><a href='../S/5.html#L312'>Command</a>           312 include/Command.h 	if(!strcmp(Command,s0)) match = true;</span>
+<span class='curline'><a href='../S/5.html#L318'>Command</a>           318 include/Command.h 		printf("Command:%s\t%f\t%f\t%f\t%f\n",Command,(*a1),(*a2),(*a3),(*a4));</span>
+<span class='curline'><a href='../S/5.html#L324'>Command</a>           324 include/Command.h inline bool Command::RunCommand(const char *s0, const char *s1, double *a1){</span>
+<span class='curline'><a href='../S/5.html#L325'>Command</a>           325 include/Command.h 	char Command[64];</span>
+<span class='curline'><a href='../S/5.html#L327'>Command</a>           327 include/Command.h 	sscanf(CommandString[CmdID],"%s %lf",Command,&amp;arg1);</span>
+<span class='curline'><a href='../S/5.html#L329'>Command</a>           329 include/Command.h 	if(!strcmp(Command,s0)) match = true;</span>
+<span class='curline'><a href='../S/5.html#L330'>Command</a>           330 include/Command.h 	if(!strcmp(Command,s1)) match = true;</span>
+<span class='curline'><a href='../S/5.html#L333'>Command</a>           333 include/Command.h 		printf("Command:%s\t%f\n",Command,(*a1));</span>
+<span class='curline'><a href='../S/6.html#L47'>Command</a>            47 include/Declaration.h Command Cmd;</span>
+<span class='curline'><a href='../S/15.html#L17'>Command</a>            17 src/Command.cpp extern Command Cmd;</span>
+<span class='curline'><a href='../S/17.html#L18'>Command</a>            18 src/Keyboard.cpp extern Command Cmd;</span>
+</pre>
+</body>
+</html>

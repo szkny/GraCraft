@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>include/Background.h</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-6.5.7' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<a id='TOP' name='TOP'></a><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/24.html'>include</a>/Background.h</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'><a href='../J/2.html' title='Multiple included from 4 places.'>INCLUDED FROM</a></h2>
+<hr />
+<pre>
+<a id='L1' name='L1'></a><em class='sharp'>#ifndef</em> <a href='../S/3.html#L2' title='Defined at 2 in include/Background.h.'>BACKGROUND_H_</a>
+<a id='L2' name='L2'></a><em class='sharp'>#define</em> <a href='../S/3.html#L1' title='Referred from 1 in include/Background.h.'>BACKGROUND_H_</a>
+<a id='L3' name='L3'></a><em class='comment'>/****************************/</em>
+<a id='L4' name='L4'></a>
+<a id='L5' name='L5'></a><em class='sharp'>#ifdef</em> __APPLE__
+<a id='L6' name='L6'></a><em class='comment'>// #include&lt;GLUT/glut.h&gt;</em>
+<a id='L7' name='L7'></a><em class='sharp'>#include</em>&lt;GL/freeglut.h&gt;
+<a id='L8' name='L8'></a><em class='sharp'>#endif</em>
+<a id='L9' name='L9'></a>
+<a id='L10' name='L10'></a><em class='sharp'>#ifdef</em> linux
+<a id='L11' name='L11'></a><em class='sharp'>#include</em>&lt;GL/glut.h&gt;
+<a id='L12' name='L12'></a><em class='sharp'>#endif</em>
+<a id='L13' name='L13'></a>
+<a id='L14' name='L14'></a><em class='sharp'>#include</em>&lt;<a href='9.html'>Hue2rgb.h</a>&gt;
+<a id='L15' name='L15'></a>
+<a id='L16' name='L16'></a>class <a href='../D/6.html' title='Multiple defined in 2 places.'>Background</a><em class='brace'>{</em>
+<a id='L17' name='L17'></a>        private:
+<a id='L18' name='L18'></a>                <strong class='reserved'>int</strong> WX,WY;
+<a id='L19' name='L19'></a>                <strong class='reserved'>int</strong> Array;
+<a id='L20' name='L20'></a>                <strong class='reserved'>float</strong> *skyR;
+<a id='L21' name='L21'></a>                <strong class='reserved'>float</strong> *skyG;
+<a id='L22' name='L22'></a>                <strong class='reserved'>float</strong> *skyB;
+<a id='L23' name='L23'></a>                <strong class='reserved'>float</strong> time;
+<a id='L24' name='L24'></a>                <strong class='reserved'>float</strong> tmax;
+<a id='L25' name='L25'></a>        public:
+<a id='L26' name='L26'></a>                <a href='../D/6.html' title='Multiple defined in 2 places.'>Background</a>();
+<a id='L27' name='L27'></a>                ~<a href='../D/6.html' title='Multiple defined in 2 places.'>Background</a>();
+<a id='L28' name='L28'></a>                <strong class='reserved'>void</strong> <a href='../D/103.html' title='Multiple defined in 7 places.'>Resize</a>(<strong class='reserved'>int</strong> windowW, <strong class='reserved'>int</strong> windowH);
+<a id='L29' name='L29'></a>                <strong class='reserved'>void</strong> <a href='../D/28.html' title='Multiple defined in 6 places.'>Draw</a>();
+<a id='L30' name='L30'></a>                <strong class='reserved'>float</strong> <a href='../S/13.html#L77' title='Defined at 77 in src/Background.cpp.'>GetTime</a>();
+<a id='L31' name='L31'></a><em class='brace'>}</em>;
+<a id='L32' name='L32'></a>
+<a id='L33' name='L33'></a><em class='comment'>/****************************/</em>
+<a id='L34' name='L34'></a><em class='sharp'>#endif</em> <em class='comment'>//BACKGROUND_H_</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM'></a>
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+</body>
+</html>

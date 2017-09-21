@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>src/Background.cpp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-6.5.7' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<a id='TOP' name='TOP'></a><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/25.html'>src</a>/Background.cpp</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='#L30'>[^]</a><a href='#L77'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L30' title='Defined at 30.'>Resize</a></li>
+<li><a href='#L36' title='Defined at 36.'>Draw</a></li>
+<li><a href='#L77' title='Defined at 77.'>GetTime</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1'></a><em class='comment'>/*</em>
+<a id='L2' name='L2'></a><em class='comment'> *      Background (sky)</em>
+<a id='L3' name='L3'></a><em class='comment'> */</em>
+<a id='L4' name='L4'></a>
+<a id='L5' name='L5'></a><em class='sharp'>#include</em>&lt;<a href='3.html'>Background.h</a>&gt;
+<a id='L6' name='L6'></a>
+<a id='L7' name='L7'></a><a href='../R/6.html' title='Multiple referred from 11 places.'>Background</a>::<a href='../D/6.html' title='Multiple defined in 2 places.'>Background</a>()<em class='brace'>{</em>
+<a id='L8' name='L8'></a>        WX = 500;
+<a id='L9' name='L9'></a>        WY = 500;
+<a id='L10' name='L10'></a>        Array = 100;
+<a id='L11' name='L11'></a>        skyR = <strong class='reserved'>new</strong> <strong class='reserved'>float</strong>[Array];
+<a id='L12' name='L12'></a>        skyG = <strong class='reserved'>new</strong> <strong class='reserved'>float</strong>[Array];
+<a id='L13' name='L13'></a>        skyB = <strong class='reserved'>new</strong> <strong class='reserved'>float</strong>[Array];
+<a id='L14' name='L14'></a>        <strong class='reserved'>float</strong> hue[3] = <em class='brace'>{</em>.6,.7,1.<em class='brace'>}</em>;
+<a id='L15' name='L15'></a>        <strong class='reserved'>for</strong>(<strong class='reserved'>int</strong> i=0;i&lt;Array;++i)<em class='brace'>{</em>
+<a id='L16' name='L16'></a>                skyR[i] = (<strong class='reserved'>float</strong>)((1-hue[0])*i+hue[0]*Array)/Array;
+<a id='L17' name='L17'></a>                skyG[i] = (<strong class='reserved'>float</strong>)((1-hue[1])*i+hue[1]*Array)/Array;
+<a id='L18' name='L18'></a>                skyB[i] = (<strong class='reserved'>float</strong>)((1-hue[2])*i+hue[2]*Array)/Array;
+<a id='L19' name='L19'></a>        <em class='brace'>}</em>
+<a id='L20' name='L20'></a>        time = 0.0;
+<a id='L21' name='L21'></a>        tmax = 100;
+<a id='L22' name='L22'></a><em class='brace'>}</em>
+<a id='L23' name='L23'></a>
+<a id='L24' name='L24'></a><a href='../D/6.html' title='Multiple defined in 2 places.'>Background</a>::~<a href='../R/6.html' title='Multiple referred from 11 places.'>Background</a>()<em class='brace'>{</em>
+<a id='L25' name='L25'></a>        <strong class='reserved'>delete</strong>[] skyR;
+<a id='L26' name='L26'></a>        <strong class='reserved'>delete</strong>[] skyG;
+<a id='L27' name='L27'></a>        <strong class='reserved'>delete</strong>[] skyB;
+<a id='L28' name='L28'></a><em class='brace'>}</em>
+<a id='L29' name='L29'></a>
+<a id='L30' name='L30'></a><strong class='reserved'>void</strong> <a href='../D/6.html' title='Multiple defined in 2 places.'>Background</a>::<a href='../R/100.html' title='Multiple referred from 14 places.'>Resize</a>(<strong class='reserved'>int</strong> windowW, <strong class='reserved'>int</strong> windowH)<em class='brace'>{</em>
+<a id='L31' name='L31'></a>        WX = windowW;
+<a id='L32' name='L32'></a>        WY = windowH;
+<a id='L33' name='L33'></a><em class='brace'>}</em>
+<a id='L34' name='L34'></a>
+<a id='L35' name='L35'></a><em class='sharp'>#define</em> <a href='../S/13.html#L53' title='Referred from 53 in src/Background.cpp.'>GRD</a> ((time/tmax-0.8)/0.2)
+<a id='L36' name='L36'></a><strong class='reserved'>void</strong> <a href='../D/6.html' title='Multiple defined in 2 places.'>Background</a>::<a href='../R/27.html' title='Multiple referred from 12 places.'>Draw</a>()<em class='brace'>{</em>
+<a id='L37' name='L37'></a>        glDisable(GL_DEPTH_TEST);
+<a id='L38' name='L38'></a>        glDisable(GL_CULL_FACE);
+<a id='L39' name='L39'></a>        glDisable(GL_LIGHTING);
+<a id='L40' name='L40'></a>        glMatrixMode(GL_PROJECTION);
+<a id='L41' name='L41'></a>        glPushMatrix();
+<a id='L42' name='L42'></a>        glLoadIdentity();
+<a id='L43' name='L43'></a>        gluOrtho2D(0, WX, WY, 0);
+<a id='L44' name='L44'></a>        glMatrixMode(GL_MODELVIEW);
+<a id='L45' name='L45'></a>        glPushMatrix();
+<a id='L46' name='L46'></a>        glLoadIdentity();
+<a id='L47' name='L47'></a>
+<a id='L48' name='L48'></a>        glBegin(GL_QUADS);
+<a id='L49' name='L49'></a>        <strong class='reserved'>double</strong> hbin = (<strong class='reserved'>double</strong>)WY/Array;
+<a id='L50' name='L50'></a>        <strong class='reserved'>int</strong> i = 0;
+<a id='L51' name='L51'></a>        <strong class='reserved'>for</strong>(<strong class='reserved'>double</strong> h=0.0;h&lt;WY;h+=hbin)<em class='brace'>{</em>
+<a id='L52' name='L52'></a>                <strong class='reserved'>if</strong>(tmax*0.8&lt;time)
+<a id='L53' name='L53'></a>                        glColor3d(<a href='../D/43.html' title='Multiple defined in 2 places.'>GRD</a>+(1-<a href='../D/43.html' title='Multiple defined in 2 places.'>GRD</a>)*skyR[i],skyG[i],(1-<a href='../D/43.html' title='Multiple defined in 2 places.'>GRD</a>)+<a href='../D/43.html' title='Multiple defined in 2 places.'>GRD</a>*skyB[i]);
+<a id='L54' name='L54'></a>                <strong class='reserved'>else</strong>
+<a id='L55' name='L55'></a>                        glColor3d(skyR[i],skyG[i],skyB[i]);
+<a id='L56' name='L56'></a>                glVertex2d(0 ,h);
+<a id='L57' name='L57'></a>                glVertex2d(WX,h);
+<a id='L58' name='L58'></a>                glVertex2d(WX,h+hbin);
+<a id='L59' name='L59'></a>                glVertex2d(0 ,h+hbin);
+<a id='L60' name='L60'></a>                ++i;
+<a id='L61' name='L61'></a>        <em class='brace'>}</em>
+<a id='L62' name='L62'></a>        glEnd();
+<a id='L63' name='L63'></a>
+<a id='L64' name='L64'></a>        glPopMatrix();
+<a id='L65' name='L65'></a>        glMatrixMode(GL_PROJECTION);
+<a id='L66' name='L66'></a>        glPopMatrix();
+<a id='L67' name='L67'></a>        glMatrixMode(GL_MODELVIEW);
+<a id='L68' name='L68'></a>        glEnable(GL_LIGHTING);
+<a id='L69' name='L69'></a>        glEnable(GL_DEPTH_TEST);
+<a id='L70' name='L70'></a>        glEnable(GL_CULL_FACE);
+<a id='L71' name='L71'></a>
+<a id='L72' name='L72'></a>        time += 0.01;
+<a id='L73' name='L73'></a>        <strong class='reserved'>if</strong>(tmax&lt;time) time = 0.0;
+<a id='L74' name='L74'></a><em class='brace'>}</em>
+<a id='L75' name='L75'></a><em class='sharp'>#undef</em> <a href='../S/13.html#L53' title='Referred from 53 in src/Background.cpp.'>GRD</a>
+<a id='L76' name='L76'></a>
+<a id='L77' name='L77'></a><strong class='reserved'>float</strong> <a href='../D/6.html' title='Multiple defined in 2 places.'>Background</a>::<a href='../R/47.html' title='Multiple referred from 4 places.'>GetTime</a>()<em class='brace'>{</em>
+<a id='L78' name='L78'></a>        <strong class='reserved'>return</strong> time;
+<a id='L79' name='L79'></a><em class='brace'>}</em>
+<a id='L80' name='L80'></a>
+<a id='L81' name='L81'></a>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM'></a>
+<em class='comment'>/* [&lt;][&gt;]<a href='#L30'>[^]</a><a href='#L77'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>include/Declaration.h</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-6.5.7' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<a id='TOP' name='TOP'></a><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/24.html'>include</a>/Declaration.h</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'><a href='18.html#L7' title='Included from 7 in src/main.cpp.'>INCLUDED FROM</a></h2>
+<hr />
+<pre>
+<a id='L1' name='L1'></a><em class='sharp'>#ifndef</em> <a href='../S/6.html#L2' title='Defined at 2 in include/Declaration.h.'>DECLARATION_h_</a>
+<a id='L2' name='L2'></a><em class='sharp'>#define</em> <a href='../S/6.html#L1' title='Referred from 1 in include/Declaration.h.'>DECLARATION_h_</a>
+<a id='L3' name='L3'></a>
+<a id='L4' name='L4'></a><em class='sharp'>#include</em>&lt;stdio.h&gt;
+<a id='L5' name='L5'></a><em class='sharp'>#include</em>&lt;stdlib.h&gt;
+<a id='L6' name='L6'></a><em class='sharp'>#include</em>&lt;math.h&gt;
+<a id='L7' name='L7'></a><em class='sharp'>#include</em>&lt;time.h&gt;
+<a id='L8' name='L8'></a><em class='sharp'>#include</em>&lt;string.h&gt;
+<a id='L9' name='L9'></a>
+<a id='L10' name='L10'></a><em class='sharp'>#ifdef</em> __APPLE__
+<a id='L11' name='L11'></a><em class='comment'>// #include&lt;GLUT/glut.h&gt;</em>
+<a id='L12' name='L12'></a><em class='sharp'>#include</em>&lt;GL/freeglut.h&gt;
+<a id='L13' name='L13'></a><em class='sharp'>#endif</em>
+<a id='L14' name='L14'></a>
+<a id='L15' name='L15'></a><em class='sharp'>#ifdef</em> linux
+<a id='L16' name='L16'></a><em class='sharp'>#include</em>&lt;GL/glut.h&gt;
+<a id='L17' name='L17'></a><em class='sharp'>#endif</em>
+<a id='L18' name='L18'></a>
+<a id='L19' name='L19'></a><em class='sharp'>#include</em>&lt;<a href='8.html'>GRAPPA.h</a>&gt;
+<a id='L20' name='L20'></a><em class='sharp'>#include</em>&lt;<a href='5.html'>Command.h</a>&gt;
+<a id='L21' name='L21'></a><em class='sharp'>#include</em>&lt;<a href='11.html'>Object.h</a>&gt;
+<a id='L22' name='L22'></a><em class='sharp'>#include</em>&lt;<a href='2.html'>AngleSetting.h</a>&gt;
+<a id='L23' name='L23'></a><em class='sharp'>#include</em>&lt;<a href='3.html'>Background.h</a>&gt;
+<a id='L24' name='L24'></a>
+<a id='L25' name='L25'></a><em class='sharp'>#include</em>&lt;vector&gt;
+<a id='L26' name='L26'></a>using namespace std;
+<a id='L27' name='L27'></a>
+<a id='L28' name='L28'></a><em class='comment'>/* Function Prototype Declaration */</em>
+<a id='L29' name='L29'></a><strong class='reserved'>void</strong> <a href='../D/51.html' title='Multiple defined in 2 places.'>Init</a>(<strong class='reserved'>void</strong>);
+<a id='L30' name='L30'></a><strong class='reserved'>void</strong> <a href='../S/18.html#L32' title='Defined at 32 in src/main.cpp.'>WindowCanvas</a>(<strong class='reserved'>void</strong>);
+<a id='L31' name='L31'></a><strong class='reserved'>void</strong> <a href='../S/18.html#L41' title='Defined at 41 in src/main.cpp.'>Controler</a>(<strong class='reserved'>void</strong>);
+<a id='L32' name='L32'></a><strong class='reserved'>void</strong> <a href='../S/17.html#L112' title='Defined at 112 in src/Keyboard.cpp.'>KeyboardMode</a>(<strong class='reserved'>void</strong>);
+<a id='L33' name='L33'></a><strong class='reserved'>void</strong> <a href='../S/17.html#L117' title='Defined at 117 in src/Keyboard.cpp.'>KeyboardMode_SP</a>(<strong class='reserved'>void</strong>);
+<a id='L34' name='L34'></a><strong class='reserved'>void</strong> <a href='../S/22.html#L20' title='Defined at 20 in src/PopUpMenu.cpp.'>PopUpMenu</a>(<strong class='reserved'>void</strong>);
+<a id='L35' name='L35'></a><strong class='reserved'>void</strong> <a href='../S/18.html#L48' title='Defined at 48 in src/main.cpp.'>Display</a>(<strong class='reserved'>void</strong>);
+<a id='L36' name='L36'></a><strong class='reserved'>void</strong> <a href='../D/103.html' title='Multiple defined in 7 places.'>Resize</a>(<strong class='reserved'>int</strong> w, <strong class='reserved'>int</strong> h);
+<a id='L37' name='L37'></a><strong class='reserved'>void</strong> <a href='../S/20.html#L28' title='Defined at 28 in src/Mouse.cpp.'>MouseClick</a>(<strong class='reserved'>int</strong> button, <strong class='reserved'>int</strong> state, <strong class='reserved'>int</strong> x, <strong class='reserved'>int</strong> y);
+<a id='L38' name='L38'></a><strong class='reserved'>void</strong> <a href='../S/20.html#L59' title='Defined at 59 in src/Mouse.cpp.'>MouseMotion</a>(<strong class='reserved'>int</strong> x, <strong class='reserved'>int</strong> y);
+<a id='L39' name='L39'></a><strong class='reserved'>void</strong> <a href='../S/21.html#L20' title='Defined at 20 in src/Objects.cpp.'>ObjectsInit</a>(<strong class='reserved'>void</strong>);
+<a id='L40' name='L40'></a><strong class='reserved'>void</strong> <a href='../S/21.html#L38' title='Defined at 38 in src/Objects.cpp.'>ObjectsDraw</a>(<strong class='reserved'>void</strong>);
+<a id='L41' name='L41'></a><strong class='reserved'>void</strong> <a href='../S/21.html#L49' title='Defined at 49 in src/Objects.cpp.'>ObjectsResize</a>(<strong class='reserved'>int</strong> WX, <strong class='reserved'>int</strong> WY);
+<a id='L42' name='L42'></a><strong class='reserved'>void</strong> <a href='../S/21.html#L60' title='Defined at 60 in src/Objects.cpp.'>glLightInit</a>();
+<a id='L43' name='L43'></a><strong class='reserved'>void</strong> <a href='../S/21.html#L72' title='Defined at 72 in src/Objects.cpp.'>glLightSetting</a>();
+<a id='L44' name='L44'></a>
+<a id='L45' name='L45'></a><em class='comment'>/* Declaration of class */</em>
+<a id='L46' name='L46'></a><a href='../D/41.html' title='Multiple defined in 2 places.'>GRAPPA</a> Grp;
+<a id='L47' name='L47'></a><a href='../S/5.html#L48' title='Defined at 48 in include/Command.h.'>Command</a> Cmd;
+<a id='L48' name='L48'></a><a href='../D/12.html' title='Multiple defined in 2 places.'>ColorBar</a> Clb;
+<a id='L49' name='L49'></a><a href='../D/3.html' title='Multiple defined in 2 places.'>AngleSetting</a> Angle;
+<a id='L50' name='L50'></a><a href='../D/6.html' title='Multiple defined in 2 places.'>Background</a> Bkg;
+<a id='L51' name='L51'></a><strong class='reserved'>extern</strong> vector&lt;<a href='../D/140.html' title='Multiple defined in 2 places.'>cube</a>&gt; cubes; <em class='comment'>//defined in Objects.cpp</em>
+<a id='L52' name='L52'></a><strong class='reserved'>extern</strong> vector&lt;<a href='../D/169.html' title='Multiple defined in 2 places.'>tube</a>&gt; tubes; <em class='comment'>//defined in Objects.cpp</em>
+<a id='L53' name='L53'></a>
+<a id='L54' name='L54'></a><em class='sharp'>#endif</em> <em class='comment'>//DECLARATION_h_</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM'></a>
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>src/main.cpp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-6.5.7' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<a id='TOP' name='TOP'></a><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/25.html'>src</a>/main.cpp</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='#L10'>[^]</a><a href='#L63'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L10' title='Defined at 10.'>main</a></li>
+<li><a href='#L22' title='Defined at 22.'>Init</a></li>
+<li><a href='#L32' title='Defined at 32.'>WindowCanvas</a></li>
+<li><a href='#L41' title='Defined at 41.'>Controler</a></li>
+<li><a href='#L48' title='Defined at 48.'>Display</a></li>
+<li><a href='#L63' title='Defined at 63.'>Resize</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1'></a><em class='comment'>/* main.cpp</em>
+<a id='L2' name='L2'></a><em class='comment'>*</em>
+<a id='L3' name='L3'></a><em class='comment'>*       main source for MineCraft  </em>
+<a id='L4' name='L4'></a><em class='comment'>*               (c) S.Suzuki 2017.9.1</em>
+<a id='L5' name='L5'></a><em class='comment'>*/</em>
+<a id='L6' name='L6'></a>
+<a id='L7' name='L7'></a><em class='sharp'>#include</em>&lt;<a href='6.html'>Declaration.h</a>&gt;
+<a id='L8' name='L8'></a>
+<a id='L9' name='L9'></a><em class='comment'>/* main function */</em>
+<a id='L10' name='L10'></a><strong class='reserved'>int</strong> main(<strong class='reserved'>int</strong> argc, <strong class='reserved'>char</strong> *argv[])<em class='brace'>{</em>
+<a id='L11' name='L11'></a>        srand((<strong class='reserved'>unsigned</strong>) time(NULL));
+<a id='L12' name='L12'></a>        glutInit(&amp;argc, argv);
+<a id='L13' name='L13'></a>        <a href='../S/18.html#L32' title='Defined at 32 in src/main.cpp.'>WindowCanvas</a>();
+<a id='L14' name='L14'></a>        <a href='../S/22.html#L20' title='Defined at 20 in src/PopUpMenu.cpp.'>PopUpMenu</a>();
+<a id='L15' name='L15'></a>        <a href='../S/18.html#L41' title='Defined at 41 in src/main.cpp.'>Controler</a>();
+<a id='L16' name='L16'></a>        glutMainLoop();
+<a id='L17' name='L17'></a>        <strong class='reserved'>return</strong> 0;
+<a id='L18' name='L18'></a><em class='brace'>}</em>
+<a id='L19' name='L19'></a>
+<a id='L20' name='L20'></a><em class='comment'>/******** Functions *********/</em>
+<a id='L21' name='L21'></a>
+<a id='L22' name='L22'></a><strong class='reserved'>void</strong> <a href='../R/50.html' title='Multiple referred from 4 places.'>Init</a>(<strong class='reserved'>void</strong>)<em class='brace'>{</em>
+<a id='L23' name='L23'></a>        glClearColor(0.1,0.1,0.1,1.0);
+<a id='L24' name='L24'></a>        glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
+<a id='L25' name='L25'></a>        glEnable(GL_DEPTH_TEST);
+<a id='L26' name='L26'></a>        glEnable(GL_CULL_FACE);
+<a id='L27' name='L27'></a>        glCullFace(GL_FRONT);
+<a id='L28' name='L28'></a>        <a href='../S/21.html#L60' title='Defined at 60 in src/Objects.cpp.'>glLightInit</a>();
+<a id='L29' name='L29'></a>        <a href='../S/21.html#L20' title='Defined at 20 in src/Objects.cpp.'>ObjectsInit</a>();
+<a id='L30' name='L30'></a><em class='brace'>}</em>
+<a id='L31' name='L31'></a>
+<a id='L32' name='L32'></a><strong class='reserved'>void</strong> <a href='../R/128.html' title='Multiple referred from 2 places.'>WindowCanvas</a>(<strong class='reserved'>void</strong>)<em class='brace'>{</em>
+<a id='L33' name='L33'></a>        glutInitWindowPosition(0,0);
+<a id='L34' name='L34'></a>        glutInitWindowSize(500,500);
+<a id='L35' name='L35'></a>        glutCreateWindow("MineCraft");
+<a id='L36' name='L36'></a>        glutDisplayFunc(<a href='../S/18.html#L48' title='Defined at 48 in src/main.cpp.'>Display</a>);
+<a id='L37' name='L37'></a>        glutReshapeFunc(<a href='../D/103.html' title='Multiple defined in 7 places.'>Resize</a>);
+<a id='L38' name='L38'></a>        <a href='../D/51.html' title='Multiple defined in 2 places.'>Init</a>();
+<a id='L39' name='L39'></a><em class='brace'>}</em>
+<a id='L40' name='L40'></a>
+<a id='L41' name='L41'></a><strong class='reserved'>void</strong> <a href='../R/20.html' title='Multiple referred from 2 places.'>Controler</a>(<strong class='reserved'>void</strong>)<em class='brace'>{</em>
+<a id='L42' name='L42'></a>        glutMouseFunc(<a href='../S/20.html#L28' title='Defined at 28 in src/Mouse.cpp.'>MouseClick</a>);
+<a id='L43' name='L43'></a>        glutMotionFunc(<a href='../S/20.html#L59' title='Defined at 59 in src/Mouse.cpp.'>MouseMotion</a>);
+<a id='L44' name='L44'></a>        <a href='../S/17.html#L112' title='Defined at 112 in src/Keyboard.cpp.'>KeyboardMode</a>();
+<a id='L45' name='L45'></a>        <a href='../S/17.html#L117' title='Defined at 117 in src/Keyboard.cpp.'>KeyboardMode_SP</a>();
+<a id='L46' name='L46'></a><em class='brace'>}</em>
+<a id='L47' name='L47'></a>
+<a id='L48' name='L48'></a><strong class='reserved'>void</strong> <a href='../R/26.html' title='Multiple referred from 2 places.'>Display</a>(<strong class='reserved'>void</strong>)<em class='brace'>{</em>
+<a id='L49' name='L49'></a>        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+<a id='L50' name='L50'></a>        Bkg.<a href='../D/28.html' title='Multiple defined in 6 places.'>Draw</a>();
+<a id='L51' name='L51'></a>        <a href='../S/21.html#L72' title='Defined at 72 in src/Objects.cpp.'>glLightSetting</a>();
+<a id='L52' name='L52'></a>
+<a id='L53' name='L53'></a>        <a href='../S/21.html#L38' title='Defined at 38 in src/Objects.cpp.'>ObjectsDraw</a>();
+<a id='L54' name='L54'></a>        Angle.<a href='../D/28.html' title='Multiple defined in 6 places.'>Draw</a>(Grp.<a href='../S/8.html#L864' title='Defined at 864 in include/GRAPPA.h.'>GetGFLAG</a>());
+<a id='L55' name='L55'></a>        Clb.<a href='../D/28.html' title='Multiple defined in 6 places.'>Draw</a>();
+<a id='L56' name='L56'></a>        Grp.<a href='../D/28.html' title='Multiple defined in 6 places.'>Draw</a>();
+<a id='L57' name='L57'></a>        Cmd.<a href='../D/28.html' title='Multiple defined in 6 places.'>Draw</a>();
+<a id='L58' name='L58'></a>        
+<a id='L59' name='L59'></a>        glutIdleFunc(glutPostRedisplay);
+<a id='L60' name='L60'></a>        glutSwapBuffers();
+<a id='L61' name='L61'></a><em class='brace'>}</em>
+<a id='L62' name='L62'></a>
+<a id='L63' name='L63'></a><strong class='reserved'>void</strong> <a href='../R/100.html' title='Multiple referred from 14 places.'>Resize</a>(<strong class='reserved'>int</strong> w, <strong class='reserved'>int</strong> h)<em class='brace'>{</em>
+<a id='L64' name='L64'></a>        glViewport(0, 0, w, h);
+<a id='L65' name='L65'></a>        glMatrixMode(GL_PROJECTION);
+<a id='L66' name='L66'></a>        glLoadIdentity();
+<a id='L67' name='L67'></a>        gluPerspective(60.0, w/(<strong class='reserved'>double</strong>)h, 1.0, 10000.0);
+<a id='L68' name='L68'></a>        Angle.<a href='../S/12.html#L52' title='Defined at 52 in src/AngleSetting.cpp.'>SetCamera</a>();
+<a id='L69' name='L69'></a>        Grp.<a href='../D/103.html' title='Multiple defined in 7 places.'>Resize</a>(w,h);
+<a id='L70' name='L70'></a>        Cmd.<a href='../D/103.html' title='Multiple defined in 7 places.'>Resize</a>(w,h);
+<a id='L71' name='L71'></a>        Clb.<a href='../D/103.html' title='Multiple defined in 7 places.'>Resize</a>(w,h);
+<a id='L72' name='L72'></a>        Angle.<a href='../D/103.html' title='Multiple defined in 7 places.'>Resize</a>(w,h);
+<a id='L73' name='L73'></a>        Bkg.<a href='../D/103.html' title='Multiple defined in 7 places.'>Resize</a>(w,h);
+<a id='L74' name='L74'></a>        <a href='../S/21.html#L49' title='Defined at 49 in src/Objects.cpp.'>ObjectsResize</a>(w,h);
+<a id='L75' name='L75'></a><em class='brace'>}</em>
+<a id='L76' name='L76'></a>
+<a id='L77' name='L77'></a>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM'></a>
+<em class='comment'>/* [&lt;][&gt;]<a href='#L10'>[^]</a><a href='#L63'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+</body>
+</html>

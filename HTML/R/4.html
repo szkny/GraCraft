@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>B</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-6.5.7' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<span class='curline'><a href='../S/8.html#L77'>B</a>                  77 include/GRAPPA.h 		void SetCanvasColor(double R, double G, double B);</span>
+<span class='curline'><a href='../S/8.html#L78'>B</a>                  78 include/GRAPPA.h 		void SetLineColor(double R, double G, double B);</span>
+<span class='curline'><a href='../S/8.html#L79'>B</a>                  79 include/GRAPPA.h 		void SetDefaultLineColor(double R, double G, double B);</span>
+<span class='curline'><a href='../S/8.html#L241'>B</a>                 241 include/GRAPPA.h 			glColor3d(hue.R(),hue.G(),hue.B());</span>
+<span class='curline'><a href='../S/8.html#L254'>B</a>                 254 include/GRAPPA.h inline void GRAPPA::SetCanvasColor(double R, double G, double B){</span>
+<span class='curline'><a href='../S/8.html#L262'>B</a>                 262 include/GRAPPA.h 						Pixel[2][i][j] = B;</span>
+<span class='curline'><a href='../S/8.html#L270'>B</a>                 270 include/GRAPPA.h 	CanvasColor[2] = B;</span>
+<span class='curline'><a href='../S/8.html#L271'>B</a>                 271 include/GRAPPA.h 	if(R==G &amp;&amp; G==B)</span>
+<span class='curline'><a href='../S/8.html#L272'>B</a>                 272 include/GRAPPA.h 		SetDefaultLineColor(0.5-R,0.5-G,1.0-B);</span>
+<span class='curline'><a href='../S/8.html#L274'>B</a>                 274 include/GRAPPA.h 		SetDefaultLineColor(1.0-R,1.0-G,1.0-B);</span>
+<span class='curline'><a href='../S/8.html#L279'>B</a>                 279 include/GRAPPA.h inline void GRAPPA::SetLineColor(double R, double G, double B){</span>
+<span class='curline'><a href='../S/8.html#L282'>B</a>                 282 include/GRAPPA.h 	LineColor[2][LineID] = B;</span>
+<span class='curline'><a href='../S/8.html#L286'>B</a>                 286 include/GRAPPA.h inline void GRAPPA::SetDefaultLineColor(double R, double G, double B){</span>
+<span class='curline'><a href='../S/8.html#L290'>B</a>                 290 include/GRAPPA.h 		LineColor[2][i] = B;</span>
+<span class='curline'><a href='../S/8.html#L374'>B</a>                 374 include/GRAPPA.h 				SetLineColor(C.R(),C.G(),C.B());</span>
+<span class='curline'><a href='../S/8.html#L375'>B</a>                 375 include/GRAPPA.h 				SetDefaultLineColor(C.R(),C.G(),C.B());</span>
+<span class='curline'><a href='../S/8.html#L376'>B</a>                 376 include/GRAPPA.h 				printf("\r\tR:%f\tG:%f\tB:%f",C.R(),C.G(),C.B());</span>
+<span class='curline'><a href='../S/8.html#L389'>B</a>                 389 include/GRAPPA.h 				SetCanvasColor(C.R(),C.G(),C.B());</span>
+<span class='curline'><a href='../S/8.html#L390'>B</a>                 390 include/GRAPPA.h 				printf("\r\tR:%f\tG:%f\tB:%f",C.R(),C.G(),C.B());</span>
+<span class='curline'><a href='../S/8.html#L530'>B</a>                 530 include/GRAPPA.h 		SetDefaultLineColor(C.R(),C.G(),C.B());</span>
+<span class='curline'><a href='../S/8.html#L554'>B</a>                 554 include/GRAPPA.h 			SetDefaultLineColor(C.R(),C.G(),C.B());</span>
+<span class='curline'><a href='../S/9.html#L30'>B</a>                  30 include/Hue2rgb.h 		inline double B();</span>
+<span class='curline'><a href='../S/9.html#L157'>B</a>                 157 include/Hue2rgb.h 			glColor3d(C.R(),C.G(),C.B());</span>
+<span class='curline'><a href='../S/16.html#L141'>B</a>                 141 src/Cube.cpp   	cube_color.diffuse[2] = 0.50*C.B();</span>
+<span class='curline'><a href='../S/16.html#L144'>B</a>                 144 src/Cube.cpp   	cube_color.ambient[2] = 0.25*C.B();</span>
+<span class='curline'><a href='../S/16.html#L145'>B</a>                 145 src/Cube.cpp   	printf("\r\tR:%f\tG:%f\tB:%f",C.R(),C.G(),C.B());</span>
+<span class='curline'><a href='../S/23.html#L159'>B</a>                 159 src/Tube.cpp   	tube_color.diffuse[2] = 0.50*C.B();</span>
+<span class='curline'><a href='../S/23.html#L162'>B</a>                 162 src/Tube.cpp   	tube_color.ambient[2] = 0.25*C.B();</span>
+<span class='curline'><a href='../S/23.html#L163'>B</a>                 163 src/Tube.cpp   	printf("\r\tR:%f\tG:%f\tB:%f",C.R(),C.G(),C.B());</span>
+</pre>
+</body>
+</html>

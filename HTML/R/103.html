@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>RunCommand</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-6.5.7' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<pre>
+<span class='curline'><a href='../S/5.html#L37'>RunCommand</a>         37 include/Command.h 		bool RunCommand(const char *s0);</span>
+<span class='curline'><a href='../S/5.html#L38'>RunCommand</a>         38 include/Command.h 		bool RunCommand(const char *s0, const char *s1);</span>
+<span class='curline'><a href='../S/5.html#L39'>RunCommand</a>         39 include/Command.h 		bool RunCommand(const char *s0, const char *s1, const char *s2);</span>
+<span class='curline'><a href='../S/5.html#L40'>RunCommand</a>         40 include/Command.h 		bool RunCommand(const char *s0, double *a1);</span>
+<span class='curline'><a href='../S/5.html#L41'>RunCommand</a>         41 include/Command.h 		bool RunCommand(const char *s0, double *a1, double *a2);</span>
+<span class='curline'><a href='../S/5.html#L42'>RunCommand</a>         42 include/Command.h 		bool RunCommand(const char *s0, double *a1, double *a2, double *a3);</span>
+<span class='curline'><a href='../S/5.html#L43'>RunCommand</a>         43 include/Command.h 		bool RunCommand(const char *s0, double *a1, double *a2, double *a3, double *a4);</span>
+<span class='curline'><a href='../S/5.html#L44'>RunCommand</a>         44 include/Command.h 		bool RunCommand(const char *s0, const char *s1, double *a1);</span>
+<span class='curline'><a href='../S/15.html#L29'>RunCommand</a>         29 src/Command.cpp 	if(Cmd.RunCommand("q","quit","exit"))</span>
+<span class='curline'><a href='../S/15.html#L32'>RunCommand</a>         32 src/Command.cpp 	else if(Cmd.RunCommand("g","grappa"))</span>
+<span class='curline'><a href='../S/15.html#L37'>RunCommand</a>         37 src/Command.cpp 		if(Cmd.RunCommand("undo"))</span>
+<span class='curline'><a href='../S/15.html#L40'>RunCommand</a>         40 src/Command.cpp 		else if(Cmd.RunCommand("redo"))</span>
+<span class='curline'><a href='../S/15.html#L43'>RunCommand</a>         43 src/Command.cpp 		else if(Cmd.RunCommand("status"))</span>
+<span class='curline'><a href='../S/15.html#L46'>RunCommand</a>         46 src/Command.cpp 		else if(Cmd.RunCommand("reset"))</span>
+<span class='curline'><a href='../S/15.html#L49'>RunCommand</a>         49 src/Command.cpp 		else if(Cmd.RunCommand("mv"))</span>
+<span class='curline'><a href='../S/15.html#L52'>RunCommand</a>         52 src/Command.cpp 		else if(Cmd.RunCommand("cp"))</span>
+<span class='curline'><a href='../S/15.html#L58'>RunCommand</a>         58 src/Command.cpp 		else if(Cmd.RunCommand("co"))</span>
+<span class='curline'><a href='../S/15.html#L61'>RunCommand</a>         61 src/Command.cpp 		else if(Cmd.RunCommand("co",&amp;Arg1,&amp;Arg2,&amp;Arg3))</span>
+<span class='curline'><a href='../S/15.html#L70'>RunCommand</a>         70 src/Command.cpp 		else if(Cmd.RunCommand("dco",&amp;Arg1,&amp;Arg2,&amp;Arg3))</span>
+<span class='curline'><a href='../S/15.html#L73'>RunCommand</a>         73 src/Command.cpp 		else if(Cmd.RunCommand("cor"))</span>
+<span class='curline'><a href='../S/15.html#L76'>RunCommand</a>         76 src/Command.cpp 		else if(Cmd.RunCommand("cog"))</span>
+<span class='curline'><a href='../S/15.html#L79'>RunCommand</a>         79 src/Command.cpp 		else if(Cmd.RunCommand("cob"))</span>
+<span class='curline'><a href='../S/15.html#L82'>RunCommand</a>         82 src/Command.cpp 		else if(Cmd.RunCommand("coy"))</span>
+<span class='curline'><a href='../S/15.html#L85'>RunCommand</a>         85 src/Command.cpp 		else if(Cmd.RunCommand("lw","width",&amp;Arg1))</span>
+<span class='curline'><a href='../S/15.html#L88'>RunCommand</a>         88 src/Command.cpp 		else if(Cmd.RunCommand("dlw","defaultwidth",&amp;Arg1))</span>
+<span class='curline'><a href='../S/15.html#L100'>RunCommand</a>        100 src/Command.cpp 		else if(Cmd.RunCommand("circle"))</span>
+<span class='curline'><a href='../S/15.html#L103'>RunCommand</a>        103 src/Command.cpp 		else if(Cmd.RunCommand("square"))</span>
+<span class='curline'><a href='../S/15.html#L106'>RunCommand</a>        106 src/Command.cpp 		else if(Cmd.RunCommand("polygon",&amp;Arg1))</span>
+<span class='curline'><a href='../S/15.html#L109'>RunCommand</a>        109 src/Command.cpp 		else if(Cmd.RunCommand("line"))</span>
+<span class='curline'><a href='../S/15.html#L112'>RunCommand</a>        112 src/Command.cpp 		else if(Cmd.RunCommand("rand"))</span>
+<span class='curline'><a href='../S/15.html#L115'>RunCommand</a>        115 src/Command.cpp 		else if(Cmd.RunCommand("kaleido"))</span>
+<span class='curline'><a href='../S/15.html#L121'>RunCommand</a>        121 src/Command.cpp 		if(Cmd.RunCommand("cube")){</span>
+<span class='curline'><a href='../S/15.html#L126'>RunCommand</a>        126 src/Command.cpp 		else if(Cmd.RunCommand("cube",&amp;Arg1,&amp;Arg2,&amp;Arg3,&amp;Arg4)){</span>
+<span class='curline'><a href='../S/15.html#L133'>RunCommand</a>        133 src/Command.cpp 		else if(Cmd.RunCommand("tube")){</span>
+<span class='curline'><a href='../S/15.html#L138'>RunCommand</a>        138 src/Command.cpp 		else if(Cmd.RunCommand("tube",&amp;Arg1,&amp;Arg2,&amp;Arg3,&amp;Arg4)){</span>
+<span class='curline'><a href='../S/15.html#L145'>RunCommand</a>        145 src/Command.cpp 		else if(Cmd.RunCommand("rm"))</span>
+<span class='curline'><a href='../S/15.html#L148'>RunCommand</a>        148 src/Command.cpp 		else if(Cmd.RunCommand("cp"))</span>
+<span class='curline'><a href='../S/15.html#L151'>RunCommand</a>        151 src/Command.cpp 		else if(Cmd.RunCommand("cp",&amp;Arg1,&amp;Arg2,&amp;Arg3))</span>
+<span class='curline'><a href='../S/15.html#L154'>RunCommand</a>        154 src/Command.cpp 		else if(Cmd.RunCommand("co","color"))</span>
+<span class='curline'><a href='../S/15.html#L157'>RunCommand</a>        157 src/Command.cpp 		else if(Cmd.RunCommand("mv",&amp;Arg1,&amp;Arg2,&amp;Arg3))</span>
+<span class='curline'><a href='../S/15.html#L160'>RunCommand</a>        160 src/Command.cpp 		else if(Cmd.RunCommand("ro","rotation"))</span>
+<span class='curline'><a href='../S/15.html#L163'>RunCommand</a>        163 src/Command.cpp 		else if(Cmd.RunCommand("mo","motion"))</span>
+<span class='curline'><a href='../S/15.html#L166'>RunCommand</a>        166 src/Command.cpp 		else if(Cmd.RunCommand("st","stop"))</span>
+</pre>
+</body>
+</html>

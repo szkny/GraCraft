@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>src/AngleSetting.cpp</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-6.5.7' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<a id='TOP' name='TOP'></a><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/25.html'>src</a>/AngleSetting.cpp</h2>
+<em class='comment'>/* [&lt;][&gt;]<a href='#L31'>[^]</a><a href='#L123'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L31' title='Defined at 31.'>Init</a></li>
+<li><a href='#L41' title='Defined at 41.'>Reset</a></li>
+<li><a href='#L47' title='Defined at 47.'>Resize</a></li>
+<li><a href='#L52' title='Defined at 52.'>SetCamera</a></li>
+<li><a href='#L65' title='Defined at 65.'>Rotate</a></li>
+<li><a href='#L75' title='Defined at 75.'>Zoom</a></li>
+<li><a href='#L80' title='Defined at 80.'>UnZoom</a></li>
+<li><a href='#L85' title='Defined at 85.'>Move</a></li>
+<li><a href='#L106' title='Defined at 106.'>Fall</a></li>
+<li><a href='#L111' title='Defined at 111.'>Jump</a></li>
+<li><a href='#L117' title='Defined at 117.'>Player</a></li>
+<li><a href='#L123' title='Defined at 123.'>Draw</a></li>
+</ol>
+<hr />
+<pre>
+<a id='L1' name='L1'></a><em class='comment'>/*</em>
+<a id='L2' name='L2'></a><em class='comment'> *      Angle Setting class</em>
+<a id='L3' name='L3'></a><em class='comment'> */</em>
+<a id='L4' name='L4'></a>
+<a id='L5' name='L5'></a><em class='sharp'>#include</em>&lt;<a href='2.html'>AngleSetting.h</a>&gt;
+<a id='L6' name='L6'></a>
+<a id='L7' name='L7'></a><strong class='reserved'>extern</strong> <a href='../D/160.html' title='Multiple defined in 2 places.'>manager</a> Mng;
+<a id='L8' name='L8'></a><strong class='reserved'>extern</strong> vector&lt;<a href='../D/140.html' title='Multiple defined in 2 places.'>cube</a>&gt; cubes;
+<a id='L9' name='L9'></a><strong class='reserved'>extern</strong> vector&lt;<a href='../D/169.html' title='Multiple defined in 2 places.'>tube</a>&gt; tubes;
+<a id='L10' name='L10'></a>
+<a id='L11' name='L11'></a><a href='../D/3.html' title='Multiple defined in 2 places.'>AngleSetting</a>::<a href='../R/3.html' title='Multiple referred from 22 places.'>AngleSetting</a>()<em class='brace'>{</em>
+<a id='L12' name='L12'></a>        size    = 5.0;
+<a id='L13' name='L13'></a>        windowW = 500;
+<a id='L14' name='L14'></a>        windowH = 500;
+<a id='L15' name='L15'></a>        Rspeed  = 0.2;
+<a id='L16' name='L16'></a>        Tspeed  = 2.0;
+<a id='L17' name='L17'></a>        dstnc   = 80;
+<a id='L18' name='L18'></a>        theta   = 0.0;
+<a id='L19' name='L19'></a>        phi     = <a href='../S/7.html#L23' title='Defined at 23 in include/Define.h.'>PI</a>/12;
+<a id='L20' name='L20'></a>        xc      = 0.0;
+<a id='L21' name='L21'></a>        yc      = size;
+<a id='L22' name='L22'></a>        zc      = 0.0;
+<a id='L23' name='L23'></a>        <em class='comment'>// xc      = Mng.GetPos().x;</em>
+<a id='L24' name='L24'></a>        <em class='comment'>// yc      = Mng.GetPos().y;</em>
+<a id='L25' name='L25'></a>        <em class='comment'>// zc      = Mng.GetPos().z;</em>
+<a id='L26' name='L26'></a><em class='brace'>}</em>
+<a id='L27' name='L27'></a>
+<a id='L28' name='L28'></a><a href='../D/3.html' title='Multiple defined in 2 places.'>AngleSetting</a>::~<a href='../R/3.html' title='Multiple referred from 22 places.'>AngleSetting</a>()<em class='brace'>{</em>
+<a id='L29' name='L29'></a><em class='brace'>}</em>
+<a id='L30' name='L30'></a>
+<a id='L31' name='L31'></a><strong class='reserved'>void</strong> <a href='../D/3.html' title='Multiple defined in 2 places.'>AngleSetting</a>::<a href='../R/50.html' title='Multiple referred from 4 places.'>Init</a>()<em class='brace'>{</em>
+<a id='L32' name='L32'></a>        Ncube = cubes.size();
+<a id='L33' name='L33'></a>        Ntube = tubes.size();
+<a id='L34' name='L34'></a>        cubes.push_back(<a href='../D/140.html' title='Multiple defined in 2 places.'>cube</a>(size*2/3,xc,yc+size/3,zc));
+<a id='L35' name='L35'></a>        tubes.push_back(<a href='../D/169.html' title='Multiple defined in 2 places.'>tube</a>(size/4,size,xc,yc-size/2,zc));
+<a id='L36' name='L36'></a>        cubes[Ncube].<a href='../D/139.html' title='Multiple defined in 2 places.'>colorMS</a>(ms_ruby);
+<a id='L37' name='L37'></a>        tubes[Ntube].<a href='../D/139.html' title='Multiple defined in 2 places.'>colorMS</a>(ms_ruby);
+<a id='L38' name='L38'></a>        tubes[Ntube].<a href='../D/166.html' title='Multiple defined in 2 places.'>roll</a>(<a href='../S/11.html#L30' title='Defined at 30 in include/Object.h.'>ZAXIS</a>,90);
+<a id='L39' name='L39'></a><em class='brace'>}</em>
+<a id='L40' name='L40'></a>
+<a id='L41' name='L41'></a><strong class='reserved'>void</strong> <a href='../D/3.html' title='Multiple defined in 2 places.'>AngleSetting</a>::<a href='../R/99.html' title='Multiple referred from 5 places.'>Reset</a>()<em class='brace'>{</em>
+<a id='L42' name='L42'></a>        dstnc = 80;
+<a id='L43' name='L43'></a>        theta = 0.0;
+<a id='L44' name='L44'></a>        phi   = <a href='../S/7.html#L23' title='Defined at 23 in include/Define.h.'>PI</a>/12;
+<a id='L45' name='L45'></a><em class='brace'>}</em>
+<a id='L46' name='L46'></a>
+<a id='L47' name='L47'></a><strong class='reserved'>void</strong> <a href='../D/3.html' title='Multiple defined in 2 places.'>AngleSetting</a>::<a href='../R/100.html' title='Multiple referred from 14 places.'>Resize</a>(<strong class='reserved'>int</strong> WX, <strong class='reserved'>int</strong> WY)<em class='brace'>{</em>
+<a id='L48' name='L48'></a>        windowW = WX;
+<a id='L49' name='L49'></a>        windowH = WY;
+<a id='L50' name='L50'></a><em class='brace'>}</em>
+<a id='L51' name='L51'></a>
+<a id='L52' name='L52'></a><strong class='reserved'>void</strong> <a href='../D/3.html' title='Multiple defined in 2 places.'>AngleSetting</a>::<a href='../R/105.html' title='Multiple referred from 10 places.'>SetCamera</a>()<em class='brace'>{</em>
+<a id='L53' name='L53'></a>        glMatrixMode(GL_MODELVIEW);
+<a id='L54' name='L54'></a>        glLoadIdentity();
+<a id='L55' name='L55'></a>        <em class='comment'>// xc = Mng.GetPos().x;</em>
+<a id='L56' name='L56'></a>        <em class='comment'>// yc = Mng.GetPos().y;</em>
+<a id='L57' name='L57'></a>        <em class='comment'>// zc = Mng.GetPos().z;</em>
+<a id='L58' name='L58'></a>        <strong class='reserved'>double</strong> ex = xc+dstnc*cos(phi)*sin(theta);
+<a id='L59' name='L59'></a>        <strong class='reserved'>double</strong> ey = yc+dstnc*sin(phi);
+<a id='L60' name='L60'></a>        <strong class='reserved'>double</strong> ez = zc+dstnc*cos(phi)*cos(theta);
+<a id='L61' name='L61'></a>        <strong class='reserved'>if</strong>(ey&lt;1.) ey = 1.;
+<a id='L62' name='L62'></a>        gluLookAt(ex,ey,ez,xc,yc,zc,0,1,0);
+<a id='L63' name='L63'></a><em class='brace'>}</em>
+<a id='L64' name='L64'></a>
+<a id='L65' name='L65'></a><strong class='reserved'>void</strong> <a href='../D/3.html' title='Multiple defined in 2 places.'>AngleSetting</a>::<a href='../R/101.html' title='Multiple referred from 2 places.'>Rotate</a>(<strong class='reserved'>double</strong> dx, <strong class='reserved'>double</strong> dy)<em class='brace'>{</em>
+<a id='L66' name='L66'></a>        theta += dx*<a href='../S/7.html#L23' title='Defined at 23 in include/Define.h.'>PI</a>/180*Rspeed;
+<a id='L67' name='L67'></a>        cubes[Ncube].<a href='../D/166.html' title='Multiple defined in 2 places.'>roll</a>(<a href='../S/11.html#L29' title='Defined at 29 in include/Object.h.'>YAXIS</a>,dx*Rspeed);
+<a id='L68' name='L68'></a>        <strong class='reserved'>if</strong>(theta&gt;2*<a href='../S/7.html#L23' title='Defined at 23 in include/Define.h.'>PI</a>) theta -= 2*<a href='../S/7.html#L23' title='Defined at 23 in include/Define.h.'>PI</a>;
+<a id='L69' name='L69'></a>        <strong class='reserved'>if</strong>(theta&lt;0)    theta += 2*<a href='../S/7.html#L23' title='Defined at 23 in include/Define.h.'>PI</a>;
+<a id='L70' name='L70'></a>        phi   += -dy*<a href='../S/7.html#L23' title='Defined at 23 in include/Define.h.'>PI</a>/180*Rspeed;
+<a id='L71' name='L71'></a>        <strong class='reserved'>if</strong>(phi&gt; <a href='../S/7.html#L23' title='Defined at 23 in include/Define.h.'>PI</a>*3/7) phi = <a href='../S/7.html#L23' title='Defined at 23 in include/Define.h.'>PI</a>*3/7;
+<a id='L72' name='L72'></a>        <strong class='reserved'>if</strong>(phi&lt;-<a href='../S/7.html#L23' title='Defined at 23 in include/Define.h.'>PI</a>*3/7) phi =-<a href='../S/7.html#L23' title='Defined at 23 in include/Define.h.'>PI</a>*3/7;
+<a id='L73' name='L73'></a><em class='brace'>}</em>
+<a id='L74' name='L74'></a>
+<a id='L75' name='L75'></a><strong class='reserved'>void</strong> <a href='../D/3.html' title='Multiple defined in 2 places.'>AngleSetting</a>::<a href='../R/134.html' title='Multiple referred from 2 places.'>Zoom</a>()<em class='brace'>{</em>
+<a id='L76' name='L76'></a>        dstnc -= dstnc/20;
+<a id='L77' name='L77'></a>        <strong class='reserved'>if</strong>(dstnc&lt;size) dstnc = size;
+<a id='L78' name='L78'></a><em class='brace'>}</em>
+<a id='L79' name='L79'></a>
+<a id='L80' name='L80'></a><strong class='reserved'>void</strong> <a href='../D/3.html' title='Multiple defined in 2 places.'>AngleSetting</a>::<a href='../R/125.html' title='Multiple referred from 2 places.'>UnZoom</a>()<em class='brace'>{</em>
+<a id='L81' name='L81'></a>        dstnc += dstnc/20;
+<a id='L82' name='L82'></a>        <strong class='reserved'>if</strong>(800.&lt;dstnc) dstnc = 800.;
+<a id='L83' name='L83'></a><em class='brace'>}</em>
+<a id='L84' name='L84'></a>
+<a id='L85' name='L85'></a><strong class='reserved'>void</strong> <a href='../D/3.html' title='Multiple defined in 2 places.'>AngleSetting</a>::<a href='../R/77.html' title='Multiple referred from 6 places.'>Move</a>(<strong class='reserved'>int</strong> key)<em class='brace'>{</em>
+<a id='L86' name='L86'></a>        <strong class='reserved'>switch</strong>(key)<em class='brace'>{</em>
+<a id='L87' name='L87'></a>                <strong class='reserved'>case</strong> GLUT_KEY_UP:
+<a id='L88' name='L88'></a>                        xc -= sin(theta)*Tspeed;
+<a id='L89' name='L89'></a>                        zc -= cos(theta)*Tspeed;
+<a id='L90' name='L90'></a>                        <strong class='reserved'>break</strong>;
+<a id='L91' name='L91'></a>                <strong class='reserved'>case</strong> GLUT_KEY_DOWN:
+<a id='L92' name='L92'></a>                        xc += sin(theta)*Tspeed;
+<a id='L93' name='L93'></a>                        zc += cos(theta)*Tspeed;
+<a id='L94' name='L94'></a>                        <strong class='reserved'>break</strong>;
+<a id='L95' name='L95'></a>                <strong class='reserved'>case</strong> GLUT_KEY_RIGHT:
+<a id='L96' name='L96'></a>                        xc += cos(-theta)*Tspeed;
+<a id='L97' name='L97'></a>                        zc += sin(-theta)*Tspeed;
+<a id='L98' name='L98'></a>                        <strong class='reserved'>break</strong>;
+<a id='L99' name='L99'></a>                <strong class='reserved'>case</strong> GLUT_KEY_LEFT:
+<a id='L100' name='L100'></a>                        xc -= cos(-theta)*Tspeed;
+<a id='L101' name='L101'></a>                        zc -= sin(-theta)*Tspeed;
+<a id='L102' name='L102'></a>                        <strong class='reserved'>break</strong>;
+<a id='L103' name='L103'></a>        <em class='brace'>}</em>
+<a id='L104' name='L104'></a><em class='brace'>}</em>
+<a id='L105' name='L105'></a>
+<a id='L106' name='L106'></a><strong class='reserved'>void</strong> <a href='../D/3.html' title='Multiple defined in 2 places.'>AngleSetting</a>::<a href='../R/34.html' title='Multiple referred from 2 places.'>Fall</a>()<em class='brace'>{</em>
+<a id='L107' name='L107'></a>        yc -= 0.5;
+<a id='L108' name='L108'></a>        <strong class='reserved'>if</strong>(yc&lt;size) yc = size;
+<a id='L109' name='L109'></a><em class='brace'>}</em>
+<a id='L110' name='L110'></a>
+<a id='L111' name='L111'></a><strong class='reserved'>void</strong> <a href='../D/3.html' title='Multiple defined in 2 places.'>AngleSetting</a>::<a href='../R/52.html' title='Multiple referred from 2 places.'>Jump</a>()<em class='brace'>{</em>
+<a id='L112' name='L112'></a>        <strong class='reserved'>if</strong>(yc==size)<em class='brace'>{</em>
+<a id='L113' name='L113'></a>                yc = size*4;
+<a id='L114' name='L114'></a>        <em class='brace'>}</em>
+<a id='L115' name='L115'></a><em class='brace'>}</em>
+<a id='L116' name='L116'></a>
+<a id='L117' name='L117'></a><strong class='reserved'>void</strong> <a href='../D/3.html' title='Multiple defined in 2 places.'>AngleSetting</a>::<a href='../R/93.html' title='Multiple referred from 2 places.'>Player</a>()<em class='brace'>{</em>
+<a id='L118' name='L118'></a>        cubes[Ncube].<a href='../D/158.html' title='Multiple defined in 2 places.'>locate</a>(xc,yc+size/3,zc);
+<a id='L119' name='L119'></a>        tubes[Ntube].<a href='../D/158.html' title='Multiple defined in 2 places.'>locate</a>(xc,yc-size/2,zc);
+<a id='L120' name='L120'></a>        <a href='../S/12.html#L106' title='Defined at 106 in src/AngleSetting.cpp.'>Fall</a>();
+<a id='L121' name='L121'></a><em class='brace'>}</em>
+<a id='L122' name='L122'></a>
+<a id='L123' name='L123'></a><strong class='reserved'>void</strong> <a href='../D/3.html' title='Multiple defined in 2 places.'>AngleSetting</a>::<a href='../R/27.html' title='Multiple referred from 12 places.'>Draw</a>(<strong class='reserved'>bool</strong> GFLAG)<em class='brace'>{</em>
+<a id='L124' name='L124'></a>        <a href='../S/14.html#L7' title='Defined at 7 in src/Colors.cpp.'>glMaterialColor</a>(ms_ruby);
+<a id='L125' name='L125'></a>        cubes[Ncube].<a href='../D/141.html' title='Multiple defined in 2 places.'>draw</a>();
+<a id='L126' name='L126'></a>        tubes[Ntube].<a href='../D/141.html' title='Multiple defined in 2 places.'>draw</a>();
+<a id='L127' name='L127'></a>        <strong class='reserved'>if</strong>(!GFLAG)<em class='brace'>{</em>
+<a id='L128' name='L128'></a>                glDisable(GL_DEPTH_TEST);
+<a id='L129' name='L129'></a>                glDisable(GL_CULL_FACE);
+<a id='L130' name='L130'></a>                glDisable(GL_LIGHTING);
+<a id='L131' name='L131'></a>                glMatrixMode(GL_PROJECTION);
+<a id='L132' name='L132'></a>                glPushMatrix();
+<a id='L133' name='L133'></a>                glLoadIdentity();
+<a id='L134' name='L134'></a>                gluOrtho2D(0, windowW, windowH, 0);
+<a id='L135' name='L135'></a>                glMatrixMode(GL_MODELVIEW);
+<a id='L136' name='L136'></a>                glPushMatrix();
+<a id='L137' name='L137'></a>                glLoadIdentity();
+<a id='L138' name='L138'></a>        
+<a id='L139' name='L139'></a>                glColor3d(1,1,1);
+<a id='L140' name='L140'></a>                <strong class='reserved'>char</strong> s[64];
+<a id='L141' name='L141'></a>                sprintf(s,"dist : %5.1f",dstnc);
+<a id='L142' name='L142'></a>                <a href='../S/10.html#L28' title='Defined at 28 in include/MyGLUT.h.'>glDrawString</a>(s,windowW-110,40);
+<a id='L143' name='L143'></a>                sprintf(s,"theta: %+5.1f",theta*180/<a href='../S/7.html#L23' title='Defined at 23 in include/Define.h.'>PI</a>);
+<a id='L144' name='L144'></a>                <a href='../S/10.html#L28' title='Defined at 28 in include/MyGLUT.h.'>glDrawString</a>(s,windowW-110,55);
+<a id='L145' name='L145'></a>                sprintf(s,"phi  : %+5.1f",phi*180/<a href='../S/7.html#L23' title='Defined at 23 in include/Define.h.'>PI</a>);
+<a id='L146' name='L146'></a>                <a href='../S/10.html#L28' title='Defined at 28 in include/MyGLUT.h.'>glDrawString</a>(s,windowW-110,70);
+<a id='L147' name='L147'></a>        
+<a id='L148' name='L148'></a>                glPopMatrix();
+<a id='L149' name='L149'></a>                glMatrixMode(GL_PROJECTION);
+<a id='L150' name='L150'></a>                glPopMatrix();
+<a id='L151' name='L151'></a>                glMatrixMode(GL_MODELVIEW);
+<a id='L152' name='L152'></a>                glEnable(GL_DEPTH_TEST);
+<a id='L153' name='L153'></a>                glEnable(GL_CULL_FACE);
+<a id='L154' name='L154'></a>                glEnable(GL_LIGHTING);
+<a id='L155' name='L155'></a>        <em class='brace'>}</em>
+<a id='L156' name='L156'></a>        <a href='../S/12.html#L52' title='Defined at 52 in src/AngleSetting.cpp.'>SetCamera</a>();
+<a id='L157' name='L157'></a>        <a href='../S/12.html#L117' title='Defined at 117 in src/AngleSetting.cpp.'>Player</a>();
+<a id='L158' name='L158'></a><em class='brace'>}</em>
+<a id='L159' name='L159'></a>
+<a id='L160' name='L160'></a>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM'></a>
+<em class='comment'>/* [&lt;][&gt;]<a href='#L31'>[^]</a><a href='#L123'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<title>include/Colors.h</title>
+<meta name='robots' content='noindex,nofollow' />
+<meta name='generator' content='GLOBAL-6.5.7' />
+<meta http-equiv='Content-Style-Type' content='text/css' />
+<link rel='stylesheet' type='text/css' href='../style.css' />
+</head>
+<body>
+<a id='TOP' name='TOP'></a><h2 class='header'><a href='../mains.html'>root</a>/<a href='../files/24.html'>include</a>/Colors.h</h2>
+<em class='comment'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+<hr />
+<h2 class='header'><a href='../J/3.html' title='Multiple included from 3 places.'>INCLUDED FROM</a></h2>
+<hr />
+<pre>
+<a id='L1' name='L1'></a><em class='sharp'>#ifndef</em> <a href='../S/4.html#L2' title='Defined at 2 in include/Colors.h.'>Color_h_</a>
+<a id='L2' name='L2'></a><em class='sharp'>#define</em> <a href='../S/4.html#L1' title='Referred from 1 in include/Colors.h.'>Color_h_</a>
+<a id='L3' name='L3'></a>
+<a id='L4' name='L4'></a><em class='comment'>/************ extern Material Color Structure ************/</em>
+<a id='L5' name='L5'></a>
+<a id='L6' name='L6'></a><em class='sharp'>#ifdef</em> __APPLE__
+<a id='L7' name='L7'></a><em class='comment'>// #include&lt;GLUT/glut.h&gt;</em>
+<a id='L8' name='L8'></a><em class='sharp'>#include</em>&lt;GL/freeglut.h&gt;
+<a id='L9' name='L9'></a><em class='sharp'>#endif</em>
+<a id='L10' name='L10'></a>
+<a id='L11' name='L11'></a><em class='sharp'>#ifdef</em> linux
+<a id='L12' name='L12'></a><em class='sharp'>#include</em>&lt;GL/glut.h&gt;
+<a id='L13' name='L13'></a><em class='sharp'>#endif</em>
+<a id='L14' name='L14'></a>
+<a id='L15' name='L15'></a><strong class='reserved'>struct</strong> <a href='../R/72.html' title='Multiple referred from 111 places.'>MaterialStruct</a> <em class='brace'>{</em>
+<a id='L16' name='L16'></a>        GLfloat ambient[4];
+<a id='L17' name='L17'></a>        GLfloat diffuse[4];
+<a id='L18' name='L18'></a>        GLfloat specular[4];
+<a id='L19' name='L19'></a>        GLfloat shininess[1];
+<a id='L20' name='L20'></a><em class='brace'>}</em>;
+<a id='L21' name='L21'></a>
+<a id='L22' name='L22'></a><em class='comment'>/* 3D-Object Color Setting */</em>
+<a id='L23' name='L23'></a><strong class='reserved'>extern</strong> <strong class='reserved'>void</strong> <a href='../S/14.html#L7' title='Defined at 7 in src/Colors.cpp.'>glMaterialColor</a>(<strong class='reserved'>struct</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_X);
+<a id='L24' name='L24'></a>
+<a id='L25' name='L25'></a><em class='comment'>/********** by M.J.Kilgard &amp; M.Yamamoto ***********/</em>
+<a id='L26' name='L26'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_ruby;
+<a id='L27' name='L27'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_emerald;
+<a id='L28' name='L28'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_jade;
+<a id='L29' name='L29'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_obsidian ;
+<a id='L30' name='L30'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_pearl ;
+<a id='L31' name='L31'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_turquoise ;
+<a id='L32' name='L32'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_brass ;
+<a id='L33' name='L33'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_bronze ;
+<a id='L34' name='L34'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_chrome ;
+<a id='L35' name='L35'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_copper ;
+<a id='L36' name='L36'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_gold ;
+<a id='L37' name='L37'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_silver ;
+<a id='L38' name='L38'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_black_plastic ;
+<a id='L39' name='L39'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_cyan_plastic ;
+<a id='L40' name='L40'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_green_plastic ;
+<a id='L41' name='L41'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_red_plastic ;
+<a id='L42' name='L42'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_white_plastic ;
+<a id='L43' name='L43'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_yellow_plastic ;
+<a id='L44' name='L44'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_black_rubber ;
+<a id='L45' name='L45'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_cyan_rubber ;
+<a id='L46' name='L46'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_red_rubber ;
+<a id='L47' name='L47'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_green_rubber ;
+<a id='L48' name='L48'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_blue_rubber ;
+<a id='L49' name='L49'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_white_rubber ;
+<a id='L50' name='L50'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_yellow_rubber ;
+<a id='L51' name='L51'></a>
+<a id='L52' name='L52'></a><em class='comment'>/********    My Products    ********/</em>
+<a id='L53' name='L53'></a><em class='comment'>/* something metal */</em>
+<a id='L54' name='L54'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_metal;
+<a id='L55' name='L55'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_TUNA;
+<a id='L56' name='L56'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_MAGRO;
+<a id='L57' name='L57'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_betapla;
+<a id='L58' name='L58'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_PMT;
+<a id='L59' name='L59'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_duct;
+<a id='L60' name='L60'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_moldsteel;
+<a id='L61' name='L61'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_Aluminium;
+<a id='L62' name='L62'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_Aluminium2;
+<a id='L63' name='L63'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_Alframerid;
+<a id='L64' name='L64'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_acryl;
+<a id='L65' name='L65'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_kapton;
+<a id='L66' name='L66'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_lead;
+<a id='L67' name='L67'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_Qmagnet;
+<a id='L68' name='L68'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_Qframe;
+<a id='L69' name='L69'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_floor;
+<a id='L70' name='L70'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_dewar;
+<a id='L71' name='L71'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_paint;
+<a id='L72' name='L72'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_Ge;
+<a id='L73' name='L73'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_Gecap;
+<a id='L74' name='L74'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_Liglass;
+<a id='L75' name='L75'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_magshield;
+<a id='L76' name='L76'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_Li;
+<a id='L77' name='L77'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_HandSpinner;
+<a id='L78' name='L78'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_Island;
+<a id='L79' name='L79'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_Sea;
+<a id='L80' name='L80'></a><strong class='reserved'>extern</strong> <a href='../S/4.html#L15' title='Defined at 15 in include/Colors.h.'>MaterialStruct</a> ms_Sun;
+<a id='L81' name='L81'></a><em class='comment'>/*******************************************/</em>
+<a id='L82' name='L82'></a>
+<a id='L83' name='L83'></a>
+<a id='L84' name='L84'></a><em class='sharp'>#endif</em> <em class='comment'>//"Color_h_"</em>
+</pre>
+<hr />
+<a id='BOTTOM' name='BOTTOM'></a>
+<em class='comment'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</em>
+</body>
+</html>
