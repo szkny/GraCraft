@@ -1,8 +1,6 @@
 ### https://raw.github.com/github/gitignore/7792e50daeaa6c07460484704671d1dc9f0045a7/C++.gitignore
 
-# Empty file
-obj/*
-!.gitkeep
+
 
 # Gtags
 GPATH
@@ -18,6 +16,8 @@ HTML/*
 *.lo
 *.o
 *.obj
+obj/*
+!.gitkeep
 
 # Precompiled Headers
 *.gch
@@ -42,6 +42,8 @@ HTML/*
 *.exe
 *.out
 *.app
+bin/*
+!.gitkeep
 
 
 ### https://raw.github.com/github/gitignore/7792e50daeaa6c07460484704671d1dc9f0045a7/Global/Vim.gitignore
