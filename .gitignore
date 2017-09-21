@@ -1,5 +1,9 @@
 ### https://raw.github.com/github/gitignore/7792e50daeaa6c07460484704671d1dc9f0045a7/C++.gitignore
 
+# Empty file
+obj/*
+!.gitkeep
+
 # Gtags
 GPATH
 GRTAGS
