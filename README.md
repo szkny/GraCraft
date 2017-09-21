@@ -8,6 +8,6 @@ $ make
 $ ./bin/GraCraft
 ```
 
-![GraCraft image1](https://github.com/szkny/GraCraft/wiki/images/GraCraft01.png)
+![GraCraft image1](https://github.com/szkny/GraCraft/wiki/images/GraCraft02.gif)
 
-![GraCraft image2](https://github.com/szkny/GraCraft/wiki/images/GraCraft02.gif)
+![GraCraft image2](https://github.com/szkny/GraCraft/wiki/images/GraCraft01.png)
