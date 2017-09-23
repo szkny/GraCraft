@@ -44,6 +44,7 @@ class AngleSetting{
 		void Player();
 		void Draw(bool GFLAG);
 		Position GetPos();
+		double GetAngle();
 };
 
 /*****************************/

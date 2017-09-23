@@ -45,6 +45,7 @@ class manager{
 		vector<int> mode;
 		vector<Position> pos;
 		int Ncube,Ntube;
+		MaterialStruct obj_color;
 	public:
 		manager();
 		~manager();
@@ -60,6 +61,7 @@ class manager{
 		void Motion();
 		void Stop();
 		void Color();
+		void StoreColor(MaterialStruct ms_color);
 		void Draw(bool GFLAG);
 		Position GetPos();
 		void IncID();
@@ -76,7 +78,8 @@ class cube{
 		int edge[12][2];
 		int face[6][4];
 		Position pos;           // center of object
-		double xt,yt,zt;        // center of object(temporary)
+		Position tmp;           // center of object(temporary)
+		double angle;           // angle of object
 		double rx,ry,rz;        // rotation angle
 		bool Mflag;             // motion flag
 		double Mradius;         // motion radius
@@ -85,7 +88,9 @@ class cube{
 		int Mdir;               // motion direction
 		bool Rflag;             //rotaion flag
 	public:
+		cube();
 		cube(double size, double x, double y, double z);
+		cube(double size, double x, double y, double z, double angle);
 		~cube();
 		void resize(int WX, int WY);
 		void draw();
@@ -100,6 +105,7 @@ class cube{
 		bool getMflag();
 		bool getRflag();
 		Position GetPos();
+		MaterialStruct GetColor();
 }; 
 
 
@@ -117,7 +123,8 @@ class tube{
 		// GLdouble **normal;
 		// int **face;
 		Position pos;           // center of object
-		double xt,yt,zt;        // center of object(temporary)
+		Position tmp;           // center of object(temporary)
+		double angle;           // angle of object
 		double rx,ry,rz;        // rotation angle
 		bool Mflag;             // motion flag
 		double Mradius;         // motion radius
@@ -126,7 +133,9 @@ class tube{
 		int Mdir;               // motion direction
 		bool Rflag;             //rotaion flag
 	public:
+		tube();
 		tube(double r, double l, double x, double y, double z);
+		tube(double r, double l, double x, double y, double z, double angle);
 		~tube();
 		void resize(int WX, int WY);
 		void draw();
@@ -141,6 +150,7 @@ class tube{
 		bool getMflag();
 		bool getRflag();
 		Position GetPos();
+		MaterialStruct GetColor();
 }; 
 
 /*******************************/

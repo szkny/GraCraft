@@ -20,7 +20,8 @@ struct MaterialStruct {
 };
 
 /* 3D-Object Color Setting */
-extern void glMaterialColor(struct MaterialStruct ms_X);
+void glMaterialColor(struct MaterialStruct ms_X);
+void glCopyMScolor(struct MaterialStruct ms_Copy, struct MaterialStruct ms_Origin);
 
 /********** by M.J.Kilgard & M.Yamamoto ***********/
 extern MaterialStruct ms_ruby;

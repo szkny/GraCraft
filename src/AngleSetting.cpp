@@ -31,7 +31,7 @@ AngleSetting::~AngleSetting(){
 void AngleSetting::Init(){
 	Ncube = cubes.size();
 	Ntube = tubes.size();
-	cubes.push_back(cube(size*2/3,p.x,p.y+size/3,p.z));
+	cubes.push_back(cube(size*2/3,p.x,p.y+size/3,p.z,0.0));
 	tubes.push_back(tube(size/4,size,p.x,p.y-size/2,p.z));
 	cubes[Ncube].colorMS(ms_ruby);
 	tubes[Ntube].colorMS(ms_ruby);
@@ -170,5 +170,9 @@ Position AngleSetting::GetPos(){
 		p.z-cos(theta)*dist
 	};
 	return tmp;
+}
+
+double AngleSetting::GetAngle(){
+	return theta;
 }
 

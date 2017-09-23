@@ -29,10 +29,46 @@ void Commands(){
 	if(Cmd.RunCommand("q","quit","exit"))
 		exit(0);
 
+	else if(Cmd.RunCommand("h","help"))
+			Cmd.Help();
+
 	else if(Cmd.RunCommand("g","grappa"))
 		Grp.SetGFLAG();
 
-	if(Grp.GetGFLAG()){ // case of GRAPPA flag 'on'
+	if(!Grp.GetGFLAG()){ // case of GRAPPA flag 'off' == 'Object Mode'
+
+		if(Cmd.RunCommand("cube"))
+			Mng.NewObject(OBJCUBE);
+
+		else if(Cmd.RunCommand("tube"))
+			Mng.NewObject(OBJTUBE);
+
+		else if(Cmd.RunCommand("co","color"))
+			Mng.Color();
+
+		else if(Cmd.RunCommand("rm"))
+			Mng.Remove();
+
+		else if(Cmd.RunCommand("cp"))
+			Mng.Copy();
+
+		else if(Cmd.RunCommand("cp",&Arg1,&Arg2,&Arg3))
+			Mng.Copy(Arg1,Arg2,Arg3);
+
+		else if(Cmd.RunCommand("mv",&Arg1,&Arg2,&Arg3))
+			Mng.Move(Arg1,Arg2,Arg3);
+
+		else if(Cmd.RunCommand("ro","rotation"))
+			Mng.Rotation();
+
+		else if(Cmd.RunCommand("mo","motion"))
+			Mng.Motion();
+
+		else if(Cmd.RunCommand("st","stop"))
+			Mng.Stop();
+	}
+
+	else{ // case of GRAPPA flag 'on'
 
 		if(Cmd.RunCommand("undo"))
 			Grp.Undo();
@@ -66,9 +102,9 @@ void Commands(){
 		//
 		// else if(Cmd.RunCommand("cco",&Arg1,&Arg2,&Arg3))
 		// 	Grp.SetCanvasColor(Arg1,Arg2,Arg3);
-
-		else if(Cmd.RunCommand("dco",&Arg1,&Arg2,&Arg3))
-			Grp.SetDefaultLineColor(Arg1,Arg2,Arg3);
+        //
+		// else if(Cmd.RunCommand("dco",&Arg1,&Arg2,&Arg3))
+		// 	Grp.SetDefaultLineColor(Arg1,Arg2,Arg3);
 
 		else if(Cmd.RunCommand("cor"))
 			Grp.SetLineColor(1.0,0.0,0.0);
@@ -116,38 +152,6 @@ void Commands(){
 			Grp.SetDrawMode(MKALEIDO);
 	}
 
-	else{ // case of GRAPPA flag 'off' == 'Object Mode'
-
-		if(Cmd.RunCommand("cube"))
-			Mng.NewObject(OBJCUBE);
-
-		else if(Cmd.RunCommand("tube"))
-			Mng.NewObject(OBJTUBE);
-
-		else if(Cmd.RunCommand("rm"))
-			Mng.Remove();
-
-		else if(Cmd.RunCommand("cp"))
-			Mng.Copy();
-
-		else if(Cmd.RunCommand("cp",&Arg1,&Arg2,&Arg3))
-			Mng.Copy(Arg1,Arg2,Arg3);
-
-		else if(Cmd.RunCommand("co","color"))
-			Mng.Color();
-
-		else if(Cmd.RunCommand("mv",&Arg1,&Arg2,&Arg3))
-			Mng.Move(Arg1,Arg2,Arg3);
-
-		else if(Cmd.RunCommand("ro","rotation"))
-			Mng.Rotation();
-
-		else if(Cmd.RunCommand("mo","motion"))
-			Mng.Motion();
-
-		else if(Cmd.RunCommand("st","stop"))
-			Mng.Stop();
-	}
 }
 
 

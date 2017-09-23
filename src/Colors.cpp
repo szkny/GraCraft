@@ -11,6 +11,15 @@ void glMaterialColor(struct MaterialStruct ms_X){
 	glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS,ms_X.shininess);	
 }
 
+void glCopyMScolor(struct MaterialStruct ms_Copy, struct MaterialStruct ms_Origin){
+	for(int i=0;i<4;++i){
+		ms_Copy.diffuse[i]  = ms_Origin.diffuse[i];
+		ms_Copy.ambient[i]  = ms_Origin.ambient[i];
+		ms_Copy.specular[i] = ms_Origin.specular[i];
+	} 
+	ms_Copy.shininess[0] = ms_Origin.shininess[0];
+}
+
 /* ruby(ルビー) */
 MaterialStruct ms_ruby  = {
 	{0.1745,   0.01175,  0.01175,   1.0},

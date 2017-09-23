@@ -4,26 +4,16 @@
 
 #include<Object.h>
 
-#define NEWARRAY(VAR,TYPE,M,N){\
-	VAR = new TYPE*[M];\
-	for(int i=0;i<M;++i){\
-		VAR[i] = new TYPE[N];\
-	}\
-}
-tube::tube(double r, double l, double x, double y, double z){
+tube::tube(){
 	windowW = 500; windowH = 500;
 	/* size of tube */
-	R=r; L=l;
+	R=5; L=10;
 	/* default color */
-	for(int i=0;i<4;++i){
-		tube_color.diffuse[i]  = ms_white_plastic.diffuse[i];
-		tube_color.ambient[i]  = ms_white_plastic.ambient[i];
-		tube_color.specular[i] = ms_white_plastic.specular[i];
-	}
-	tube_color.shininess[0] = ms_white_plastic.shininess[0];
+	colorMS(ms_white_plastic);
 	/* default position */
-	pos.x=x; pos.y=y; pos.z=z;
-	/* default angle of rotation */
+	pos.x=0; pos.y=0; pos.z=0;
+	/* default angle */
+	angle=0.0;
 	rx=0;ry=0;rz=0;
 	/* for motion */
 	Mflag=false; Mradius=0.;
@@ -32,12 +22,7 @@ tube::tube(double r, double l, double x, double y, double z){
 	Mpspeed = 0.;
 	/* for rotation */
 	Rflag = false;
-
 	N = 200;
-	// N = (r>2)?r*100:200; #<{(| N-sided polygon |)}>#
-	// NEWARRAY(vertex,GLdouble,2*N+1,3);
-	// NEWARRAY(normal,GLdouble,N,3);
-	// NEWARRAY(face,int,N+1,4);
 	for(int j=0;j<N;++j){
 		vertex[j  ][0] =-L/2.0;
 		vertex[j  ][1] = R*cos((2.0*PI*(double)j)/(double)N);
@@ -68,8 +53,106 @@ tube::tube(double r, double l, double x, double y, double z){
 	normlid[1][1] = 0.0;
 	normlid[1][2] = 0.0;
 }
-#undef NEWARRAY
 
+tube::tube(double r, double l, double x, double y, double z){
+	windowW = 500; windowH = 500;
+	/* size of tube */
+	R=r; L=l;
+	/* default color */
+	colorMS(ms_white_plastic);
+	/* default position */
+	pos.x=x; pos.y=y; pos.z=z;
+	/* default angle */
+	angle=0.0;
+	rx=0;ry=0;rz=0;
+	/* for motion */
+	Mflag=false; Mradius=0.;
+	Mtheta=0.; Mphi=0.;
+	Mtspeed = 0.;
+	Mpspeed = 0.;
+	/* for rotation */
+	Rflag = false;
+	N = 200;
+	for(int j=0;j<N;++j){
+		vertex[j  ][0] =-L/2.0;
+		vertex[j  ][1] = R*cos((2.0*PI*(double)j)/(double)N);
+		vertex[j  ][2] = R*sin((2.0*PI*(double)j)/(double)N);
+		vertex[j+N][0] = L/2.0;
+		vertex[j+N][1] = vertex[j][1];
+		vertex[j+N][2] = vertex[j][2];
+	}
+	for(int j=0;j<N-1;++j){
+		face[j][0] = j    ;
+		face[j][1] = j+N  ;
+		face[j][2] = j+N+1;
+		face[j][3] = j  +1;
+	}
+	face[N-1][0] =   N-1;
+	face[N-1][1] = 2*N-1;
+	face[N-1][2] =     N;
+	face[N-1][3] =     0;
+	for(int j=0;j<N;++j){
+		normal[j][0] = 0.0;
+		normal[j][1] = cos((2.0*PI*(double)j)/(double)N);
+		normal[j][2] = sin((2.0*PI*(double)j)/(double)N);
+	}
+	normlid[0][0] =-1.0;
+	normlid[0][1] = 0.0;
+	normlid[0][2] = 0.0;
+	normlid[1][0] = 1.0;
+	normlid[1][1] = 0.0;
+	normlid[1][2] = 0.0;
+}
+
+tube::tube(double r, double l, double x, double y, double z, double ang){
+	windowW = 500; windowH = 500;
+	/* size of tube */
+	R=r; L=l;
+	/* default color */
+	colorMS(ms_white_plastic);
+	/* default position */
+	pos.x=x; pos.y=y; pos.z=z;
+	/* default angle */
+	angle=ang*180/PI;
+	rx=0;ry=0;rz=0;
+	/* for motion */
+	Mflag=false; Mradius=0.;
+	Mtheta=0.; Mphi=0.;
+	Mtspeed = 0.;
+	Mpspeed = 0.;
+	/* for rotation */
+	Rflag = false;
+	N = 200;
+	for(int j=0;j<N;++j){
+		vertex[j  ][0] =-L/2.0;
+		vertex[j  ][1] = R*cos((2.0*PI*(double)j)/(double)N);
+		vertex[j  ][2] = R*sin((2.0*PI*(double)j)/(double)N);
+		vertex[j+N][0] = L/2.0;
+		vertex[j+N][1] = vertex[j][1];
+		vertex[j+N][2] = vertex[j][2];
+	}
+	for(int j=0;j<N-1;++j){
+		face[j][0] = j    ;
+		face[j][1] = j+N  ;
+		face[j][2] = j+N+1;
+		face[j][3] = j  +1;
+	}
+	face[N-1][0] =   N-1;
+	face[N-1][1] = 2*N-1;
+	face[N-1][2] =     N;
+	face[N-1][3] =     0;
+	for(int j=0;j<N;++j){
+		normal[j][0] = 0.0;
+		normal[j][1] = cos((2.0*PI*(double)j)/(double)N);
+		normal[j][2] = sin((2.0*PI*(double)j)/(double)N);
+	}
+	normlid[0][0] =-1.0;
+	normlid[0][1] = 0.0;
+	normlid[0][2] = 0.0;
+	normlid[1][0] = 1.0;
+	normlid[1][1] = 0.0;
+	normlid[1][2] = 0.0;
+}
 
 #define DELETE(VAR,M){\
 	for(int i=0;i<M;++i){\
@@ -95,9 +178,9 @@ void tube::draw(){
 	if(Mflag){
 		Mtheta += Mdir*PI/Mtspeed;
 		Mphi   += Mdir*PI/Mpspeed;
-		locate(xt+Mradius*cos(Mtheta)*sin(Mphi),
-			   yt+Mradius*sin(Mtheta)*sin(Mphi),
-			   zt+Mradius*cos(Mphi));
+		locate(tmp.x+Mradius*cos(Mtheta)*sin(Mphi),
+			   tmp.y+Mradius*sin(Mtheta)*sin(Mphi),
+			   tmp.z+Mradius*cos(Mphi));
 	}
 	if(Rflag){
 		roll(XAXIS,1.);
@@ -110,6 +193,7 @@ void tube::draw(){
 	glRotated(rx,1,0,0);
 	glRotated(ry,0,1,0);
 	glRotated(rz,0,0,1);
+	glRotated(angle,0,1,0);
 	glBegin(GL_QUADS);
 	for(int j=0;j<N;++j){
 		glNormal3dv(normal[j]);
@@ -175,9 +259,9 @@ void tube::colorMS(MaterialStruct ms_color){
 
 void tube::motion(){
 	Mflag = true;
-	xt = pos.x;
-	yt = pos.y;
-	zt = pos.z;
+	tmp.x = pos.x;
+	tmp.y = pos.y;
+	tmp.z = pos.z;
 	Mdir = randpm();
 	Mtspeed = 20+80*randf();
 	Mpspeed = 20+80*randf();
@@ -204,5 +288,9 @@ bool tube::getRflag(){
 
 Position tube::GetPos(){
 	return pos;
+}
+
+MaterialStruct tube::GetColor(){
+	return tube_color;
 }
 

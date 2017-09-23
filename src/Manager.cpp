@@ -23,6 +23,7 @@ manager::manager(){
 	pos.reserve(100);
 	Position pos0 = {0,0,0};
 	pos.push_back(pos0);
+	StoreColor(ms_white_plastic);
 }
 
 manager::~manager(){
@@ -55,13 +56,15 @@ void manager::NewObject(int MODE){
 	mode.push_back(MODE);
 	ID = mode.size()-1;
 	if(MODE==OBJCUBE){
-		cubes.push_back(cube(10,Agl.GetPos().x,Agl.GetPos().y,Agl.GetPos().z));
+		cubes.push_back(cube(10,Agl.GetPos().x,Agl.GetPos().y,Agl.GetPos().z,Agl.GetAngle()));
 		pos.push_back(cubes[cubes.size()-1].GetPos());
+		cubes[cubes.size()-1].colorMS(obj_color);
 		++Ncube;
 	}
 	if(MODE==OBJTUBE){
-		tubes.push_back(tube(5,10,Agl.GetPos().x,Agl.GetPos().y,Agl.GetPos().z));
+		tubes.push_back(tube(5,10,Agl.GetPos().x,Agl.GetPos().y,Agl.GetPos().z,Agl.GetAngle()));
 		pos.push_back(tubes[tubes.size()-1].GetPos());
+		tubes[tubes.size()-1].colorMS(obj_color);
 		++Ntube;
 	}
 	Agl.SetCamera();
@@ -179,6 +182,15 @@ void manager::Color(){
 		if(Clb.Flag()) Clb.Off();
 		else Clb.On();
 	}
+}
+
+void manager::StoreColor(MaterialStruct ms_color){
+	for(int i=0;i<4;++i){
+		obj_color.diffuse[i]  = ms_color.diffuse[i];
+		obj_color.ambient[i]  = ms_color.ambient[i];
+		obj_color.specular[i] = ms_color.specular[i];
+	} 
+	obj_color.shininess[0] = ms_color.shininess[0];
 }
 
 void manager::Draw(bool GFLAG){

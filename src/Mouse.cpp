@@ -21,6 +21,7 @@ extern vector<tube> tubes; //defined in Objects.cpp
 #define COLORCB(MODE,objs){\
 	if(Mng.GetMode()==MODE && 0<objs.size()){\
 		objs[objs.size()-1].colorCB(x);\
+		Mng.StoreColor(objs[objs.size()-1].GetColor());\
 		flag = true;\
 	}\
 }
