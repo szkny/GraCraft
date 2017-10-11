@@ -16,15 +16,8 @@ extern manager Mng; //defined in Objects.cpp
 extern AngleSetting Agl; //defined in Declaration.h
 extern vector<cube> cubes; //defined in Objects.cpp
 extern vector<tube> tubes; //defined in Objects.cpp
+extern vector<pipe> pipes; //defined in Objects.cpp
 
-
-#define COLORCB(MODE,objs){\
-	if(Mng.GetMode()==MODE && 0<objs.size()){\
-		objs[objs.size()-1].colorCB(x);\
-		Mng.StoreColor(objs[objs.size()-1].GetColor());\
-		flag = true;\
-	}\
-}
 /* mouse click */
 void MouseClick(int button, int state, int x, int y){
 	switch (button) {
@@ -34,11 +27,8 @@ void MouseClick(int button, int state, int x, int y){
 					Grp.NewFreeHand();
 					Grp.SetCoordinate(x,y);
 				}
-				else if(Clb.Flag()){
-					bool flag = false;
-					COLORCB(OBJCUBE,cubes);
-					COLORCB(OBJTUBE,tubes);
-					if(flag) Clb.Set(x);
+				else if(Clb.Flag()){ // change color
+					if(Mng.ColorCB(x)) Clb.Set(x);
 				}
 			}
 			if(state==GLUT_UP){
@@ -65,10 +55,7 @@ void MouseMotion(int x, int y){
 			Grp.SetCoordinate(x,y);
 		else{
 			if(Clb.Flag()){ // Change Object Color
-				bool flag = false;
-				COLORCB(OBJCUBE,cubes);
-				COLORCB(OBJTUBE,tubes);
-				if(flag) Clb.Set(x);
+				if(Mng.ColorCB(x)) Clb.Set(x);
 			}
 			else
 				Agl.Rotate(xmouse-x,ymouse-y);
@@ -78,12 +65,5 @@ void MouseMotion(int x, int y){
 	ymouse = y;
 	MFLAG  = true;
 }
-#undef COLORCB
 
-
-// void MouseDrawMode(void){
-// 	glutPassiveMotionFunc(NULL);
-// 	glutMotionFunc(MouseMotion);
-// }
-//
 

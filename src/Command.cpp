@@ -11,7 +11,6 @@
 using namespace std;
 
 extern vector<cube> cubes; //defined in Objects.cpp
-extern vector<tube> tubes; //defined in Objects.cpp
 extern bool MFLAG; //defined in Mouse.cpp
 extern GRAPPA Grp;
 extern Command Cmd;
@@ -43,8 +42,17 @@ void Commands(){
 		else if(Cmd.RunCommand("tube"))
 			Mng.NewObject(OBJTUBE);
 
+		else if(Cmd.RunCommand("pipe"))
+			Mng.NewObject(OBJPIPE);
+
 		else if(Cmd.RunCommand("co","color"))
-			Mng.Color();
+			Mng.ColorMode();
+
+		else if(Cmd.RunCommand("co",&Arg1,&Arg2,&Arg3))
+			Mng.ColorRGB(Arg1,Arg2,Arg3);
+
+		else if(Cmd.RunCommand("reset","clear"))
+			Mng.Reset();
 
 		else if(Cmd.RunCommand("rm"))
 			Mng.Remove();
@@ -52,8 +60,11 @@ void Commands(){
 		else if(Cmd.RunCommand("cp"))
 			Mng.Copy();
 
-		else if(Cmd.RunCommand("cp",&Arg1,&Arg2,&Arg3))
-			Mng.Copy(Arg1,Arg2,Arg3);
+		else if(Cmd.RunCommand("cp",&Arg1))
+			Mng.Copy(Arg1);
+
+		else if(Cmd.RunCommand("mv"))
+			Mng.Move();
 
 		else if(Cmd.RunCommand("mv",&Arg1,&Arg2,&Arg3))
 			Mng.Move(Arg1,Arg2,Arg3);

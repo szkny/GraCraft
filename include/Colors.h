@@ -1,16 +1,7 @@
 #ifndef Color_h_
 #define Color_h_
 
-/************ extern Material Color Structure ************/
-
-#ifdef __APPLE__
-// #include<GLUT/glut.h>
-#include<GL/freeglut.h>
-#endif
-
-#ifdef linux
-#include<GL/glut.h>
-#endif
+/************ Material Color Structure ************/
 
 struct MaterialStruct {
 	GLfloat ambient[4];

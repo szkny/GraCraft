@@ -28,19 +28,16 @@ void AngleArrowKey(int key, int x, int y);
 
 void KeyboardShortcut(unsigned char key, int x, int y){
 
-	if(!Grp.GetGFLAG()){ // Object Mode
+	if(!Grp.GFLAG){ // Object Mode
 		switch(key){
 			case 'n': // new object
-				if(Mng.GetMode()==OBJCUBE)
-					Mng.NewObject(OBJCUBE);
-				if(Mng.GetMode()==OBJTUBE)
-					Mng.NewObject(OBJTUBE);
+				Mng.NewObject();
 				break;
 			case 'u': // remove object
 				Mng.Remove();
 				break;
 			case 'c': // change object color
-				Mng.Color();
+				Mng.ColorMode();
 				break;
 			case 'm': // motion
 				Mng.Motion();

@@ -3,15 +3,15 @@
 
 NAME    := GraCraft
 
-# ROOTDIR := /Users/suzukisohei/Project
+ROOTDIR := /Users/suzukisohei/Project
 
 SUFFIX  := .cpp
 
 SRC_DIR := ./src
 INC_DIR := ./include
 OBJ_DIR := ./obj
-# INC_DIR += $(ROOTDIR)/share/include
-# LIB_DIR := $(ROOTDIR)/share/lib
+INC_DIR += $(ROOTDIR)/share/include
+LIB_DIR := $(ROOTDIR)/share/lib
 EXE_DIR := ./bin
 
 COMPILER:= g++
@@ -31,7 +31,7 @@ endif
 SOURCES := $(wildcard $(SRC_DIR)/*$(SUFFIX))
 HEADERS := $(wildcard $(INC_DIR)/*.h)
 OBJECTS := $(addprefix $(OBJ_DIR)/,$(notdir $(SOURCES:%$(SUFFIX)=%.o)))
-# LIBRARY := $(subst lib,-l,$(basename $(notdir $(wildcard $(LIB_DIR)/*))))
+LIBRARY := $(subst lib,-l,$(basename $(notdir $(wildcard $(LIB_DIR)/*))))
 TARGETS := $(notdir $(basename $(SOURCES)))
 
 OPTIONS := $(FRAME) $(addprefix -I,$(INC_DIR)) $(CFLAGS) $(addprefix -L,$(LIB_DIR)) $(LIBRARY)

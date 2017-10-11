@@ -19,16 +19,16 @@
 class AngleSetting{
 	private:
 		double size;  // player size
-		int    Ncube; // cube number for player
-		int    Ntube; // tube number for player
+		int    Ncube; // number of cube for player
+		int    Ntube; // number of tube for player
 		double windowW,windowH;
 		double Rspeed; // Angle Rotate Speed
 		double Tspeed; // Angle Translate Speed
 		double dstnc;
-		double theta,phi;
-		Position p; // center of object
-		Position v; // velocity of object
 	public:
+		Position p;       // center of object
+		Position v;       // velocity of object
+		double theta,phi; // Camera Angle
 		AngleSetting();
 		~AngleSetting();
 		void Init();
@@ -44,7 +44,6 @@ class AngleSetting{
 		void Player();
 		void Draw(bool GFLAG);
 		Position GetPos();
-		double GetAngle();
 };
 
 /*****************************/

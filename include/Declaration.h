@@ -33,6 +33,7 @@ void KeyboardMode(void);
 void KeyboardMode_SP(void);
 void PopUpMenu(void);
 void Display(void);
+void Timer(int value);
 void Resize(int w, int h);
 void MouseClick(int button, int state, int x, int y);
 void MouseMotion(int x, int y);
@@ -48,7 +49,6 @@ Command Cmd;
 ColorBar Clb;
 AngleSetting Agl;
 Background Bkg;
-extern vector<cube> cubes; //defined in Objects.cpp
-extern vector<tube> tubes; //defined in Objects.cpp
+extern manager Mng;
 
 #endif //DECLARATION_h_

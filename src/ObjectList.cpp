@@ -1,5 +1,5 @@
 /*
- *	Objects List
+ *	Object List
  */
 
 #include<vector>
@@ -13,6 +13,7 @@ using namespace std;
 manager Mng;
 vector<cube> cubes;
 vector<tube> tubes;
+vector<pipe> pipes;
 extern GRAPPA Grp;
 extern Background Bkg;
 extern AngleSetting Agl;
@@ -20,6 +21,7 @@ extern AngleSetting Agl;
 void ObjectsInit(void){
 	cubes.reserve(100);
 	tubes.reserve(100);
+	pipes.reserve(100);
 	// sea & island
 	float Isize = 500.0;
 	cubes.push_back(cube( Isize, 0.0,-Isize/2, 0.0)); //island
@@ -43,6 +45,7 @@ void ObjectsDraw(void){
 	glDisable(GL_BLEND);
 	for(int i=0;i<4;++i)
 		tubes[i].draw();
+
 	Mng.Draw(Grp.GetGFLAG());
 }
 

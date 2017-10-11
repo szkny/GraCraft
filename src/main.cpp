@@ -8,6 +8,10 @@
 
 /* main function */
 int main(int argc, char *argv[]){
+	printf("\n\t\033[7m Welcom to GraCraft \033[0m\n"
+			" please type ':' key to input commands.\n\n");
+	fflush(stdout);
+
 	srand((unsigned) time(NULL));
 	glutInit(&argc, argv);
 	WindowCanvas();
@@ -34,6 +38,7 @@ void WindowCanvas(void){
 	glutInitWindowSize(500,500);
 	glutCreateWindow("GraCraft");
 	glutDisplayFunc(Display);
+	glutTimerFunc(10,Timer,0);
 	glutReshapeFunc(Resize);
 	Init();
 }
@@ -51,13 +56,19 @@ void Display(void){
 	glLightSetting();
 
 	ObjectsDraw();
-	Agl.Draw(Grp.GetGFLAG());
+	Agl.Draw(Grp.GFLAG);
 	Clb.Draw();
 	Grp.Draw();
 	Cmd.Draw();
 	
 	glutIdleFunc(glutPostRedisplay);
 	glutSwapBuffers();
+}
+
+void Timer(int value){
+	Mng.ChangeParameters();
+	glutPostRedisplay();
+	glutTimerFunc(10,Timer,0);
 }
 
 void Resize(int w, int h){

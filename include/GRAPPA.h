@@ -51,7 +51,6 @@ class GRAPPA{
 		int    LineID; /* Line ID */
 		int    DrawMode; /* Draw Mode */
 		int    Nside;  /* for draw N-side Polygon */
-		bool   GFLAG;  /* GRAPPA Flag */
 		bool   TmpFlag;/* Temporary Flag */
 		bool   PXFLAG; /* Pixel Mode Flag */
 		bool   ERFLAG; /* Eraser Flag */
@@ -65,6 +64,7 @@ class GRAPPA{
 		int    PixelSize; /* Size of Pixel */
 		int    PixelEraserCounter; /* Counter of Pixel Eraser */
 	public:
+		bool   GFLAG;  /* GRAPPA Flag */
 		GRAPPA();
 		~GRAPPA();
 		void Resize(int WX, int XY);

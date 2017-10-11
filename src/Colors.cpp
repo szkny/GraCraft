@@ -1,6 +1,14 @@
 /************ Material Color Structure ************/
 /********** by M.J.Kilgard & M.Yamamoto ***********/
 
+#ifdef __APPLE__
+#include<GL/freeglut.h>
+#endif
+
+#ifdef linux
+#include<GL/glut.h>
+#endif
+
 #include<Colors.h>
 
 /* 3D-Object Color Setting */

@@ -32,7 +32,7 @@ void AngleSetting::Init(){
 	Ncube = cubes.size();
 	Ntube = tubes.size();
 	cubes.push_back(cube(size*2/3,p.x,p.y+size/3,p.z,0.0));
-	tubes.push_back(tube(size/4,size,p.x,p.y-size/2,p.z));
+	tubes.push_back(tube(size/4,size,p.x,p.y-size/3,p.z,0.0));
 	cubes[Ncube].colorMS(ms_ruby);
 	tubes[Ntube].colorMS(ms_ruby);
 	tubes[Ntube].roll(ZAXIS,90);
@@ -52,9 +52,6 @@ void AngleSetting::Resize(int WX, int WY){
 void AngleSetting::SetCamera(){
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	// p.x = Mng.GetPos().x;
-	// p.y = Mng.GetPos().y;
-	// p.z = Mng.GetPos().z;
 	double ex = p.x+dstnc*cos(phi)*sin(theta);
 	double ey = p.y+dstnc*sin(phi);
 	double ez = p.z+dstnc*cos(phi)*cos(theta);
@@ -163,16 +160,11 @@ void AngleSetting::Draw(bool GFLAG){
 }
 
 Position AngleSetting::GetPos(){
-	float dist = 15.0;
 	Position tmp = {
-		p.x-sin(theta)*dist,
+		p.x-sin(theta)*size*3,
 		p.y,
-		p.z-cos(theta)*dist
+		p.z-cos(theta)*size*3
 	};
 	return tmp;
-}
-
-double AngleSetting::GetAngle(){
-	return theta;
 }
 

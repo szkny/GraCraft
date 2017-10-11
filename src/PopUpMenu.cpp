@@ -42,10 +42,7 @@ void Menu(int val){
 		case 0: // Quit
 			exit(0);
 		case 1: // Select Color
-			if(1<cubes.size() || 0<tubes.size()){
-				if(Clb.Flag()) Clb.Off();
-				else Clb.On();
-			}
+			Mng.ColorMode();
 			break;
 		case 2: // Remove Object
 			Mng.Remove();
