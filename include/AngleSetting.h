@@ -6,8 +6,7 @@
 #include<math.h>
 
 #ifdef __APPLE__
-// #include<GLUT/glut.h>
-#include<GL/freeglut.h>
+#include<GLUT/glut.h>
 #endif
 
 #ifdef linux

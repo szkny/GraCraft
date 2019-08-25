@@ -3,15 +3,11 @@
 
 NAME    := GraCraft
 
-# ROOTDIR := /Users/suzukisohei/Project
-
 SUFFIX  := .cpp
 
 SRC_DIR := ./src
 INC_DIR := ./include
 OBJ_DIR := ./obj
-# INC_DIR += $(ROOTDIR)/share/include
-# LIB_DIR := $(ROOTDIR)/share/lib
 EXE_DIR := ./bin
 
 COMPILER:= g++
@@ -22,7 +18,7 @@ COMPILER:= g++
 UNAME   := $(shell uname)
 ifeq ($(UNAME), Darwin)
 CFLAGS  := -Wall -O2
-FRAME   := -framework GLUT -framework OpenGL 
+FRAME   := -framework GLUT -framework OpenGL
 endif
 ifeq ($(UNAME), Linux)
 CFLAGS  := -w -O2 -I/usr/X11R6/include -L/usr/X11R6/lib -lglut -lGLU -lGL -lXmu -lXi -lXext -lX11 -lm -lpthread
